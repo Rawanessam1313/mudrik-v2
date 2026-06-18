@@ -1,1 +1,174 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================
+   Mudrik — Global Theme
+   Palette from brand logo
+========================= */
+
+:root {
+  /* Brand colors */
+  --navy: #1b2b4b;
+  --navy-light: #2a3f66;
+  --navy-muted: rgba(27, 43, 75, 0.6);
+
+  --coral: #f78271;
+  --coral-dark: #e56b59;
+  --coral-light: #fff0ed;
+
+  --sky: #71b8e4;
+  --sky-dark: #5aa3d1;
+  --sky-light: #eaf6fc;
+
+  --green: #a7d08c;
+  --green-dark: #8db485;
+  --green-light: #edf7e8;
+
+  --yellow: #ffc145;
+  --yellow-light: #fff7e0;
+
+  /* Semantic aliases */
+  --primary: var(--coral);
+  --primary-dark: var(--coral-dark);
+  --primary-light: var(--coral-light);
+
+  --secondary: var(--sky);
+  --secondary-dark: var(--sky-dark);
+  --secondary-light: var(--sky-light);
+
+  --accent: var(--yellow);
+  --accent-light: var(--yellow-light);
+
+  --sage: var(--green-dark);
+  --success: var(--green);
+
+  --foreground: var(--navy);
+  --foreground-muted: var(--navy-muted);
+
+  --background: #fefdfa;
+  --surface: #ffffff;
+
+  --border: rgba(27, 43, 75, 0.1);
+  --border-strong: rgba(27, 43, 75, 0.18);
+
+  --shadow-sm: 0 2px 8px rgba(27, 43, 75, 0.06);
+  --shadow: 0 8px 24px rgba(27, 43, 75, 0.08);
+  --shadow-lg: 0 12px 32px rgba(27, 43, 75, 0.12);
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 80px;
+
+  --transition: 0.2s ease;
+  --font-ar: 'Cairo', sans-serif;
+}
+
+/* =========================
+   Reset & Base
+========================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: var(--font-ar);
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background:
+    radial-gradient(circle at top right, var(--coral-light) 0%, transparent 40%),
+    radial-gradient(circle at bottom left, var(--sky-light) 0%, transparent 35%),
+    linear-gradient(180deg, var(--background), #fff);
+}
+
+/* Links */
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Buttons */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* =========================
+   Reusable Classes
+========================= */
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(247, 130, 113, 0.3);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-dark);
+  transform: translateY(-1px);
+}
+
+.badge {
+  background: var(--accent-light);
+  color: var(--foreground);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 193, 69, 0.35);
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* Text helpers */
+
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-sage { color: var(--sage); }
+.text-muted { color: var(--foreground-muted); }
