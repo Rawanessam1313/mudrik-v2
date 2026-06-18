@@ -1,0 +1,56 @@
+<nav class="navbar" dir="rtl" [class.menu-open]="isMenuOpen">
+
+  <!-- Logo -->
+  <a class="navbar-logo" routerLink="/index" (click)="closeMenu()">
+    <img
+      class="logo-img"
+      src="mudrik.png"
+      alt="مدرك"
+    />
+    <!-- <span class="logo-tagline">مدرك — منصة التعلم الذكي</span> -->
+  </a>
+
+  <!-- Center Menu -->
+  <ul class="navbar-links" [class.open]="isMenuOpen">
+    <li>
+      <a
+        routerLink="/index"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+      >
+        الرئيسية
+      </a>
+    </li>
+    <li>
+      <a href="#features" (click)="closeMenu()">المميزات</a>
+    </li>
+    <li>
+      <a href="#how" (click)="closeMenu()">كيف نعمل</a>
+    </li>
+    <li>
+      <a href="#parents" (click)="closeMenu()">لأولياء الأمور</a>
+    </li>
+    <li>
+      <a routerLink="/login" (click)="closeMenu()">تسجيل الدخول</a>
+    </li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="navbar-actions" [class.open]="isMenuOpen">
+    <a class="btn-start" routerLink="/index" (click)="closeMenu()">ابدأ الآن</a>
+  </div>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    [attr.aria-expanded]="isMenuOpen"
+    aria-label="فتح القائمة"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</nav>
