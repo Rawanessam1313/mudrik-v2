@@ -1,0 +1,94 @@
+<div class="auth-wrapper">
+  <aside class="auth-info">
+    <div class="auth-info-content">
+      <!--<a routerLink="/" class="logo">
+    <div class="logo-icon"><i class="fas fa-owl"></i></div>
+    <span>مُدْرِك</span>
+  </a>-->
+
+      <a routerLink="/" class="logo">
+        <img src="images/logo2.jpg" alt="مُدْرِك" class="logo-img">
+      </a>
+
+      <h1>مرحباً بك مجدداً في عالم مُدْرِك</h1>
+      <p>سجل دخولك لمتابعة رحلة طفلك التعليمية المخصصة واستكشاف التقارير الذكية.</p>
+
+      <div class="feature-highlights">
+        <div class="feature-item">
+          <div class="feature-icon-box"><i class="fas fa-chart-pie"></i></div>
+          <div class="feature-text">
+            <h4>تحليلات ذكية</h4>
+            <p>تقارير مفصلة عن مستوى الانتباه والتقدم الدراسي.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-box"><i class="fas fa-brain"></i></div>
+          <div class="feature-text">
+            <h4>تخصيص مستمر</h4>
+            <p>الذكاء الاصطناعي يتطور مع كل تفاعل لطفلك.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-box"><i class="fas fa-comments"></i></div>
+          <div class="feature-text">
+            <h4>تواصل مباشر</h4>
+            <p>احصل على نصائح فورية لدعم طفلك في المنزل.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="auth-form-container">
+    <div class="form-card">
+      <div class="form-header">
+        <h2>تسجيل الدخول</h2>
+        <p style="color: var(--text-muted);">يسعدنا رؤيتك مرة أخرى</p>
+      </div>
+
+      <!--<div class="role-selector">
+        <button type="button" class="role-btn" [class.active]="currentRole === 'parent'" (click)="selectRole('parent')">ولي أمر</button>
+        <button type="button" class="role-btn" [class.active]="currentRole === 'admin'" (click)="selectRole('admin')">مسؤول النظام</button>
+      </div>-->
+
+      <div *ngIf="showAlert" class="alert" [ngClass]="'alert-' + alertType" style="display: block;">
+        {{ alertMessage }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="email">البريد الإلكتروني</label>
+          <div class="input-wrapper">
+            <input type="email" id="email" class="form-input" placeholder="name@example.com"
+                   [(ngModel)]="email" name="email" (input)="onInputChange()" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">كلمة المرور</label>
+          <div class="input-wrapper">
+            <input [type]="showPassword ? 'text' : 'password'" id="password" class="form-input" placeholder="••••••••"
+                   [(ngModel)]="password" name="password" (input)="onInputChange()" required>
+            <i class="fas input-icon" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'" (click)="togglePasswordVisibility()"></i>
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember-me">
+            <span>تذكرني</span>
+          </label>
+          <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;" [class.btn-loading]="isLoading" [disabled]="isLoading">
+          {{ currentRole === 'admin' ? 'دخول المسؤول' : 'دخول' }}
+        </button>
+
+        <p class="auth-footer">
+          ليس لديك حساب؟ <a routerLink="/auth/register">أنشئ حساباً الآن</a>
+        </p>
+      </form>
+    </div>
+  </main>
+</div>
