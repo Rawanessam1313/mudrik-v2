@@ -59,6 +59,15 @@
 
   --transition: 0.2s ease;
   --font-ar: 'Cairo', sans-serif;
+  /* Font sizes — ثابتة في كل المشروع */
+--text-xs:    13px;   /* hints, badges */
+--text-sm:    15px;   /* secondary text */
+--text-base:  17px;   /* body / paragraph */
+--text-md:    19px;   /* card titles */
+--text-lg:    24px;   /* section sub-headings */
+--text-xl:    32px;   /* section titles (h2) */
+--text-2xl:   42px;   /* page titles (h1) */
+--text-hero:  70px;   /* الهيرو بس */
 }
 
 /* =========================
