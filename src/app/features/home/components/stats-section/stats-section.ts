@@ -20,7 +20,7 @@ export class StatsSection implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.stats.forEach(stat => this.animateCounter(stat, 2000));
+    this.stats.forEach(stat => this.animateCounter(stat, 5000));
   }
 
   animateCounter(stat: any, duration: number): void {

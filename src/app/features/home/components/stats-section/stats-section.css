@@ -1,9 +1,9 @@
 /* Stats Section */
 .stats {
-    background:  rgba(254, 253, 250, 0.92);
+    
     border-top: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-    height: 30vh;
+    
+    height: 23vh;
 }
 
 .stats-grid {

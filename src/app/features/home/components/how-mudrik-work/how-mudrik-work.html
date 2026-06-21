@@ -1,0 +1,151 @@
+<section class="how-it-works" dir="rtl">
+
+  <div class="how-it-works__intro">
+    <h2 class="how-it-works__title">رحلة طفلك مع مُدْرِك</h2>
+    <p class="how-it-works__subtitle">خمس خطوات بسيطة تبدأ بها قصة نجاح طفلك</p>
+  </div>
+
+  <div class="timeline">
+    <div
+      class="timeline__node"
+      *ngFor="let step of steps"
+      [class.is-active]="isActive(step.id)"
+      (click)="selectStep(step.id)"
+      role="button"
+      tabindex="0"
+      [attr.aria-pressed]="isActive(step.id)"
+      (keydown.enter)="selectStep(step.id)"
+    >
+      <div class="timeline__circle">{{ step.id }}</div>
+      <div class="timeline__label">{{ step.title }}</div>
+      <div class="timeline__desc">{{ step.description }}</div>
+    </div>
+  </div>
+
+  <div class="mockup-stage">
+
+    <!-- Step 1 — Parent registration form -->
+    <div class="mockup-panel" *ngIf="isActive(1)">
+      <div class="m-card">
+        <div class="m-field">
+          <label class="m-label">اسم ولي الأمر</label>
+          <input class="m-input" type="text" disabled />
+        </div>
+        <div class="m-field">
+          <label class="m-label">البريد الإلكتروني</label>
+          <input class="m-input" type="text" disabled />
+        </div>
+        <div class="m-field">
+          <label class="m-label">كلمة المرور</label>
+          <input class="m-input" type="text" disabled />
+        </div>
+        <button class="m-btn" type="button" disabled>إنشاء الحساب</button>
+      </div>
+    </div>
+
+    <!-- Step 2 — Add child + interests -->
+    <div class="mockup-panel" *ngIf="isActive(2)">
+      <div class="m-card">
+        <div class="m-field">
+          <label class="m-label">اسم الطفل</label>
+          <input class="m-input" type="text" disabled />
+        </div>
+        <div class="m-field">
+          <label class="m-label">الصف الدراسي</label>
+          <input class="m-input" type="text" disabled />
+        </div>
+        <label class="m-label">الاهتمامات</label>
+        <div class="m-interest-grid">
+          <div class="m-interest is-selected">
+            <i class="ti ti-rocket" aria-hidden="true"></i>
+            <span>الفضاء</span>
+          </div>
+          <div class="m-interest is-selected">
+            <i class="ti ti-ball-basketball" aria-hidden="true"></i>
+            <span>الرياضة</span>
+          </div>
+          <div class="m-interest">
+            <i class="ti ti-book" aria-hidden="true"></i>
+            <span>القصص</span>
+          </div>
+        </div>
+        <button class="m-btn" type="button" disabled>إضافة الطفل</button>
+      </div>
+    </div>
+
+    <!-- Step 3 — Diagnostic quiz -->
+    <div class="mockup-panel" *ngIf="isActive(3)">
+      <div class="m-card">
+        <p class="m-quiz-question">أي شكل مختلف عن الباقي؟</p>
+        <div class="m-quiz-option">
+          <span class="m-quiz-dot"></span>
+          <span>دائرة حمراء</span>
+        </div>
+        <div class="m-quiz-option is-correct">
+          <span class="m-quiz-dot"></span>
+          <span>مربع أزرق</span>
+        </div>
+        <div class="m-quiz-option">
+          <span class="m-quiz-dot"></span>
+          <span>دائرة خضراء</span>
+        </div>
+        <button class="m-btn" type="button" disabled>السؤال التالي</button>
+      </div>
+    </div>
+
+    <!-- Step 4 — Personalized dashboard -->
+    <div class="mockup-panel" *ngIf="isActive(4)">
+      <div class="m-dashboard">
+        <div class="m-dash-header">
+          <span>المستوى ٥ | ١٢٤٠ نقطة</span>
+          <span>مرحباً، أحمد!</span>
+        </div>
+        <div class="m-dash-body">
+          <p class="m-progress-label">المهمة الحالية: درس اللغة العربية</p>
+          <div class="m-progress-track">
+            <div class="m-progress-fill"></div>
+          </div>
+          <div class="m-subject-grid">
+            <div class="m-subject">
+              <i class="ti ti-flask" aria-hidden="true"></i>
+              <span>العلوم</span>
+            </div>
+            <div class="m-subject">
+              <i class="ti ti-calculator" aria-hidden="true"></i>
+              <span>الرياضيات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 — Fun experience for the child -->
+    <div class="mockup-panel" *ngIf="isActive(5)">
+      <div class="m-fun-grid">
+        <div class="m-fun-card">
+          <div class="m-fun-icon"><i class="ti ti-flame" aria-hidden="true"></i></div>
+          <p class="m-fun-title">نظام الـ Streak</p>
+          <p class="m-fun-desc">الحفاظ على شعلة الإنجاز يومياً بدون ضغط.</p>
+        </div>
+        <div class="m-fun-card">
+          <div class="m-fun-icon"><i class="ti ti-medal" aria-hidden="true"></i></div>
+          <p class="m-fun-title">رف الأوسمة</p>
+          <p class="m-fun-desc">عرض إنجازات الطفل ليفخر بما حققه.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav-row">
+    <button
+      *ngFor="let step of steps"
+      class="nav-dot"
+      [class.is-active]="isActive(step.id)"
+      (click)="selectStep(step.id)"
+      [attr.aria-label]="'عرض خطوة ' + step.title"
+      type="button"
+    ></button>
+  </div>
+
+</section>
