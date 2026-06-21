@@ -1,0 +1,275 @@
+<section class="hero" id="hero" dir="rtl">
+
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- Twinkling stars -->
+  <span class="star" style="top: 70%;  left: 90%; color: #ffc145; animation-delay: 0s;">★</span>
+  <span class="star" style="top: 80%; left: 18%; color: #ffc145; animation-delay: 0.5s;">★</span>
+  <span class="star" style="top: 80%;  left: 48%; color: #f78271; animation-delay: 1.4s;">★</span>
+  <span class="star" style="top: 5%;  left: 72%; color: #71b8e4; animation-delay: 0.8s;">★</span>
+  <span class="star" style="top: 15%; left: 92%; color: #f78271; animation-delay: 0.6s;">★</span>
+  <span class="star" style="top: 22%; left: 72%; color: #71b8e4; animation-delay: 1.1s;">★</span>
+  <span class="star" style="top: 18%; left: 32%; color: #a7d08c; animation-delay: 1.8s;">★</span>
+  <span class="star" style="top: 70%; left: 58%; color: #ffc145; animation-delay: 2.2s;">★</span>
+  <span class="star" style="top: 35%; left: 85%; color: #ffc145; animation-delay: 0.4s;">★</span>
+  <span class="star" style="top: 55%; left: 12%; color: #71b8e4; animation-delay: 1.6s;">★</span>
+  <span class="star" style="top: 38%; left: 42%; color: #a7d08c; animation-delay: 2.5s;">★</span>
+  <span class="star" style="top: 50%; left: 68%; color: #f78271; animation-delay: 0.3s;">★</span>
+  <span class="star" style="top: 55%; left: 28%; color: #71b8e4; animation-delay: 1.9s;">★</span>
+  <span class="star" style="top: 90%; left: 88%; color: #ffc145; animation-delay: 2.8s;">★</span>
+  <span class="star star-sm" style="top: 20%; left: 62%; color: #ffc145; animation-delay: 0.9s;">★</span>
+  <span class="star star-sm" style="top: 32%; left: 22%; color: #f78271; animation-delay: 1.3s;">★</span>
+  <span class="star star-sm" style="top: 45%; left: 52%; color: #a7d08c; animation-delay: 2.1s;">★</span>
+  <span class="star star-sm" style="top: 90%; left: 78%; color: #71b8e4; animation-delay: 0.7s;">★</span>
+  <span class="star star-xs" style="top: 10%; left: 38%; color: #fff; animation-delay: 1.7s;">★</span>
+  <span class="star star-xs" style="top: 80%; left: 95%; color: #fff; animation-delay: 2.4s;">★</span>
+
+  <!-- Mars -->
+  <div
+    id="celestial-mars"
+    class="celestial-mars float-reverse group"
+  
+  >
+    <svg viewBox="0 0 100 100" class="mars-svg" aria-hidden="true">
+      <circle cx="50" cy="50" r="40" fill="url(#mars-rose-grad)" stroke="#071333" stroke-width="2.5" />
+      <circle cx="40" cy="40" r="4.5" fill="#be123c" opacity="0.5" />
+      <circle cx="62" cy="44" r="3.5" fill="#be123c" opacity="0.5" />
+      <circle cx="50" cy="62" r="5.5" fill="#be123c" opacity="0.5" />
+      <defs>
+        <radialGradient id="mars-rose-grad" cx="30%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#fda4af" />
+          <stop offset="50%" stop-color="#f43f5e" />
+          <stop offset="100%" stop-color="#4c0519" />
+        </radialGradient>
+      </defs>
+    </svg>
+  
+  </div>
+
+  <!-- Saturn planet — bottom center -->
+  <div class="planet-float-wrap" aria-hidden="true">
+    <div class="planet-float">
+      <svg viewBox="0 0 160 120" class="planet-svg">
+      <path d="M 12,60 C 20,44 140,44 148,60" fill="none" stroke="#cbd5e1" stroke-width="5" opacity="0.5" />
+      <path d="M 4,60 C 14,40 146,40 156,60" fill="none" stroke="#67e8f9" stroke-width="3" opacity="0.4" />
+      <circle cx="80" cy="60" r="32" fill="url(#saturn-blue-grad)" stroke="#071333" stroke-width="3" />
+      <path d="M 52,50 Q 80,56 108,50" fill="none" stroke="#0891b2" stroke-width="3.5" stroke-linecap="round" opacity="0.8" />
+      <path d="M 49,66 Q 80,73 111,66" fill="none" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+      <path d="M 12,60 C 20,76 140,76 148,60" fill="none" stroke="#67e8f9" stroke-width="8" stroke-linecap="round" />
+      <path d="M 4,60 C 14,80 146,80 156,60" fill="none" stroke="#0891b2" stroke-width="3.5" stroke-linecap="round" />
+      <defs>
+        <radialGradient id="saturn-blue-grad" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#e0f2fe" />
+          <stop offset="60%" stop-color="#38bdf8" />
+          <stop offset="100%" stop-color="#0369a1" />
+        </radialGradient>
+      </defs>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Flying robot — far left, vertical center -->
+
+<!-- Flying robot -->
+<div class="cosmos-robot-wrap">
+
+  <div
+    id="background-cosmos-robot"
+    class="cosmos-robot float-reverse"
+    title="روبوت مُدرك الذكي الطائر"
+  >
+
+    @if (showRobotMessage) {
+      <div class="robot-speech">
+        {{ robotMessages[robotMessageIndex] }}
+      </div>
+    }
+
+
+    <svg viewBox="0 0 160 160" class="robot-svg" aria-hidden="true">
+
+      <ellipse
+        cx="80"
+        cy="138"
+        rx="22"
+        ry="5"
+        fill="#3b82f6"
+        opacity="0.6"
+        class="robot-pulse"
+      />
+
+      <path
+        d="M72,126 L80,148 L88,126 Z"
+        fill="#22d3ee"
+      />
+
+      <path
+        d="M42,92 Q25,82 32,74"
+        fill="none"
+        stroke="#cbd5e1"
+        stroke-width="4.5"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M118,92 Q135,82 128,74"
+        fill="none"
+        stroke="#cbd5e1"
+        stroke-width="4.5"
+        stroke-linecap="round"
+      />
+
+
+      <rect
+        x="52"
+        y="36"
+        width="56"
+        height="42"
+        rx="16"
+        fill="#1e293b"
+        stroke="#3b82f6"
+        stroke-width="3"
+      />
+
+
+      <line
+        x1="80"
+        y1="36"
+        x2="80"
+        y2="20"
+        stroke="#3b82f6"
+        stroke-width="3.5"
+      />
+
+
+      <circle
+        cx="80"
+        cy="18"
+        r="5"
+        fill="#10b981"
+        class="robot-ping"
+      />
+
+
+      <rect
+        x="58"
+        y="43"
+        width="44"
+        height="20"
+        rx="7"
+        fill="#0f172a"
+      />
+
+
+      <circle cx="69" cy="53" r="3.5" fill="#10b981"/>
+      <circle cx="91" cy="53" r="3.5" fill="#10b981"/>
+
+
+      <rect
+        x="46"
+        y="82"
+        width="68"
+        height="46"
+        rx="18"
+        fill="#1e293b"
+        stroke="#3b82f6"
+        stroke-width="3"
+      />
+
+      <rect
+        x="58"
+        y="92"
+        width="44"
+        height="14"
+        rx="4"
+        fill="#0f172a"
+      />
+
+      <path
+        d="M62,99 L70,99 L73,95 L78,103 L82,99 L98,99"
+        fill="none"
+        stroke="#10b981"
+        stroke-width="2.2"
+        stroke-linecap="round"
+      />
+
+    </svg>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Content -->
+  <div class="hero-content">
+    <span class="hero-badge">المنصة التعليمية التفاعلية الرقمية للأطفال</span>
+
+    <h1 class="hero-title">
+      <span class="highlight coral">تعلّم</span> بمرح
+      <span class="highlight sky"> وافهم   </span>
+      <span class="highlight green">بعمق  </span>
+    </h1>
+
+    <p class="hero-desc">
+      منصة مُدْرِك تجعل التعلّم رحلة ممتعة مليئة بالألوان والأفكار،
+      مصمّمة خصيصاً لكل طفل.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn-hero-primary" routerLink="/index">ابدأ رحلة طفلك الآن</a>
+
+      <div class="hero-secondary-row">
+        <a class="btn-hero-secondary" href="#how">اكتشف كيف يعمل</a>
+
+        <div
+          id="flying-ufo-container"
+          (click)="triggerSpaceshipLaunch()"
+          class="ufo-container"
+          [ngClass]="spaceshipStatus === 'launch' ? 'launch' : 'idle'"
+          title="المركبة الفضائية مُدرك-1! اضغط هنا!"
+          role="button"
+          tabindex="0"
+          (keydown.enter)="triggerSpaceshipLaunch()"
+          (keydown.space)="triggerSpaceshipLaunch(); $event.preventDefault()"
+        >
+          <div class="ufo-body">
+            <svg viewBox="0 0 120 80" class="ufo-svg" aria-hidden="true">
+              <path d="M 40,35 C 40,18 80,18 80,35 Z" fill="#22d3ee" opacity="0.85" />
+              <ellipse cx="60" cy="45" rx="35" ry="12" fill="#64748b" />
+              <ellipse cx="60" cy="43" rx="32" ry="10" fill="#94a3b8" />
+              <circle cx="40" cy="45" r="2" fill="#10b981" />
+              <circle cx="60" cy="46" r="2.2" fill="#10b981" />
+              <circle cx="80" cy="45" r="2" fill="#10b981" />
+              <defs>
+                <linearGradient id="ufo-thrust" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#10b981" stop-opacity="0.8" />
+                  <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path d="M 52,52 L 60,68 L 68,52 Z" fill="url(#ufo-thrust)" />
+            </svg>
+            <div class="tooltip">مستكشف 1 🚀</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
