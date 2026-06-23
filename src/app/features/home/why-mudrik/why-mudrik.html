@@ -1,0 +1,61 @@
+<section class="why-choose" dir="rtl">
+
+  <div class="why-choose__intro">
+    <h2 class="why-choose__title">لماذا تختار مُدْرِك؟</h2>
+    <p class="why-choose__subtitle">
+      نحن نفهم التحديات التي يواجهها طفلك، ونقدم حلولاً تقنية ذكية لتجاوزها.
+    </p>
+  </div>
+
+  <div #challengesSection class="why-choose__section">
+  
+    <div class="cc-grid">
+
+      <div class="cc-card cc-card--challenge">
+        <div class="cc-card__head">
+          <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+          <span>التحديات التقليدية</span>
+        </div>
+        <ul class="cc-list">
+          <li class="cc-item" *ngFor="let item of challenges">
+            <i class="ti ti-x" aria-hidden="true"></i>
+            <span>{{ item.text }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cc-card cc-card--solution">
+        <div class="cc-card__head">
+          <i class="ti ti-bulb" aria-hidden="true"></i>
+          <span>حلول مُدْرِك الذكية</span>
+        </div>
+        <ul class="cc-list">
+          <li class="cc-item" *ngFor="let item of solutions">
+            <i class="ti ti-check" aria-hidden="true"></i>
+            <span>{{ item.text }}</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div #featuresSection class="why-choose__section">
+    <h3 class="why-choose__section-title">مميزات صُممت بعناية</h3>
+
+    <div class="feat-grid">
+      <div
+        #featCard
+        class="feat-card"
+        *ngFor="let feature of features"
+      >
+        <div class="feat-card__icon">
+          <i class="ti ti-{{ feature.icon }}" aria-hidden="true"></i>
+        </div>
+        <p class="feat-card__title">{{ feature.title }}</p>
+        <p class="feat-card__desc">{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+
+</section>

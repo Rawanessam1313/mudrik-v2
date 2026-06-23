@@ -27,6 +27,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@tabler/icons-webfont/dist/tabler-icons.css",
               "src/styles.css"
             ],
             "scripts": [
