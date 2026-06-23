@@ -18,7 +18,7 @@
   --sky-light: #eaf6fc;
 
   --green: #a7d08c;
-  --green-dark: #8db485;
+  --green-dark: rgb(141, 180, 133);
   --green-light: #edf7e8;
 
   --yellow: #ffc145;
@@ -97,8 +97,7 @@ body {
 
 body {
   background:
-    radial-gradient(circle at top right, var(--coral-light) 0%, transparent 40%),
-    radial-gradient(circle at bottom left, var(--sky-light) 0%, transparent 35%),
+   
     linear-gradient(180deg, var(--background), #fff);
 }
 
