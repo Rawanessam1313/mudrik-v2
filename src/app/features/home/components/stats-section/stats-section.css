@@ -1,9 +1,9 @@
 /* Stats Section */
 .stats {
-    
+    padding: 3rem 1.25rem;
     border-top: 0.5px solid var(--border);
     
-    height: 23vh;
+    height: 35vh;
 }
 
 .stats-grid {
