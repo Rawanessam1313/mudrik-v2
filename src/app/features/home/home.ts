@@ -6,11 +6,12 @@ import { WhyMudrik } from './why-mudrik/why-mudrik';
 import { HowMudrikWork } from './components/how-mudrik-work/how-mudrik-work';
 import { ForParent } from './components/for-parent/for-parent';
 import { Footer } from './components/footer/footer';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavBar, HeroSection, StatsSection ,WhyMudrik ,HowMudrikWork ,ForParent ,Footer],
+  imports: [NavBar, HeroSection, StatsSection ,WhyMudrik ,HowMudrikWork ,ForParent ,Footer,RouterOutlet],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
 })
