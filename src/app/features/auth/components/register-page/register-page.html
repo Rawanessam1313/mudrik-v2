@@ -1,1 +1,130 @@
-<p>register-page works!</p>
+<div class="auth-wrapper">
+  <aside class="auth-info">
+    <div class="auth-info-content">
+      <a routerLink="/" class="logo">
+        <img src="images/logo2.jpg" alt="مُدْرِك" class="logo-img">
+      </a>
+
+      <h1>ابدأ رحلة طفلك التعليمية معنا</h1>
+      <p>انضم إلى مجتمع مُدْرِك ووفّر لطفلك تجربة تعلم فريدة تتناسب مع قدراته واحتياجاته الخاصة.</p>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <i class="fas fa-magic"></i>
+          <span>تخصيص كامل للمحتوى بالذكاء الاصطناعي</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-chart-line"></i>
+          <span>متابعة لحظية لتقدم الطفل الدراسي والسلوكي</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>بيئة آمنة تماماً ومحفزة للإبداع</span>
+        </div>
+      </div>
+
+      <div class="trust-indicators">
+        <span><i class="fas fa-check-circle"></i> مطابق للمنهج المصري</span>
+        <span><i class="fas fa-check-circle"></i> يدعم عسر القراءة و ADHD</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="auth-form-container">
+    <div class="form-card">
+      <div class="form-header">
+        <h2>إنشاء حساب جديد</h2>
+        <p style="color: var(--foreground-muted);">انضم إلينا اليوم في خطوات بسيطة</p>
+      </div>
+
+      <div *ngIf="showAlert" class="alert" [ngClass]="'alert-' + alertType" style="display: block;">
+        {{ alertMessage }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()" novalidate>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="full-name">الاسم الكامل</label>
+          <div class="input-wrapper">
+            <input type="text" id="full-name" class="form-input" [class.invalid]="nameError"
+                   placeholder="أدخل اسمك بالكامل" [(ngModel)]="fullName" name="fullName"
+                   (input)="onInputChange()" required>
+          </div>
+          <div class="error-message" *ngIf="nameError">الرجاء إدخال الاسم الكامل بشكل صحيح</div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="email">البريد الإلكتروني</label>
+          <div class="input-wrapper">
+            <input type="email" id="email" class="form-input" [class.invalid]="emailError"
+                   placeholder="name@example.com" [(ngModel)]="email" name="email"
+                   (input)="onInputChange()" required>
+          </div>
+          <div class="error-message" *ngIf="emailError">الرجاء إدخال بريد إلكتروني صحيح</div>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label class="form-label" for="phone">رقم الهاتف</label>
+          <div class="input-wrapper">
+            <input type="tel" id="phone" class="form-input" [class.invalid]="phoneError"
+                   placeholder="01xxxxxxxxx" [(ngModel)]="phone" name="phone"
+                   (input)="onInputChange()" required>
+          </div>
+          <div class="error-message" *ngIf="phoneError">الرجاء إدخال رقم هاتف صحيح (11 رقم)</div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label class="form-label" for="password">كلمة المرور</label>
+          <div class="input-wrapper">
+            <input [type]="showPassword ? 'text' : 'password'" id="password" class="form-input"
+                   [class.invalid]="passwordError" placeholder="••••••••"
+                   [(ngModel)]="password" name="password"
+                   (input)="onPasswordInput()" required>
+            <i class="fas input-icon" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+               (click)="togglePasswordVisibility()"></i>
+          </div>
+          <div class="strength-meter" *ngIf="showStrengthMeter">
+            <div class="strength-bar" [style.width]="passwordStrengthWidth"
+                 [style.backgroundColor]="passwordStrengthColor"></div>
+          </div>
+          <div class="strength-text" *ngIf="showStrengthMeter"
+               [style.color]="passwordStrengthColor">{{ passwordStrengthText }}</div>
+          <div class="error-message" *ngIf="passwordError">كلمة المرور يجب أن لا تقل عن 8 أحرف</div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label class="form-label" for="confirm-password">تأكيد كلمة المرور</label>
+          <div class="input-wrapper">
+            <input type="password" id="confirm-password" class="form-input"
+                   [class.invalid]="confirmPasswordError" placeholder="••••••••"
+                   [(ngModel)]="confirmPassword" name="confirmPassword"
+                   (input)="onInputChange()" required>
+          </div>
+          <div class="error-message" *ngIf="confirmPasswordError">كلمات المرور غير متطابقة</div>
+        </div>
+
+        <!-- Terms -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" [(ngModel)]="termsAccepted" name="terms">
+          <label class="checkbox-label" for="terms">
+            أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;"
+                [class.btn-loading]="isLoading" [disabled]="isLoading">
+          إنشاء الحساب
+        </button>
+
+        <p class="login-prompt">
+          هل لديك حساب بالفعل؟ <a routerLink="/auth/login">تسجيل الدخول</a>
+        </p>
+      </form>
+    </div>
+  </main>
+</div>
