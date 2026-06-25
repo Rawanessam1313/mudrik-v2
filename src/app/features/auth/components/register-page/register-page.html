@@ -1,4 +1,4 @@
-<div class="auth-wrapper">
+<div class="auth-wrapper" id="register-page">
   <aside class="auth-info">
     <div class="auth-info-content">
       <a routerLink="/" class="logo">
@@ -122,7 +122,7 @@
         </button>
 
         <p class="login-prompt">
-          هل لديك حساب بالفعل؟ <a routerLink="/auth/login">تسجيل الدخول</a>
+          هل لديك حساب بالفعل؟ <a [routerLink]="['/auth/login-page']">تسجيل الدخول</a>
         </p>
       </form>
     </div>

@@ -1,0 +1,266 @@
+/* =========================
+   Sidebar
+========================= */
+
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  min-height: 100vh;
+
+  background: var(--navy);
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  overflow: hidden;
+
+  padding: 0;
+}
+
+
+/* =========================
+   Stars Background
+========================= */
+
+.star {
+  position: absolute;
+
+  font-size: 20px;
+  line-height: 1;
+
+  z-index: 0;
+
+  pointer-events: none;
+  user-select: none;
+
+  opacity: 0.85;
+
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+
+.star-sm {
+  font-size: 15px;
+}
+
+.star-xs {
+  font-size: 10px;
+}
+
+
+@keyframes twinkle {
+
+  from {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+}
+
+
+
+/* خلي محتوى السايدبار فوق النجوم */
+
+.sidebar__logo,
+.sidebar__nav,
+.sidebar__footer {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+/* =========================
+   Logo
+========================= */
+
+
+.sidebar__logo-icon {
+  width: 60px;
+  height: 60px;
+
+  border-radius: var(--radius);
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: transparent;
+}
+
+
+.sidebar__logo-icon img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================
+   Navigation
+========================= */
+
+
+.sidebar__nav {
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: 16px 12px;
+
+}
+
+
+
+.sidebar__item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+
+  padding: 11px 12px;
+
+
+  border-radius: var(--radius-sm);
+
+
+  color: rgba(255,255,255,.5);
+
+
+  font-size: var(--text-sm);
+
+  font-weight: 600;
+
+
+  text-decoration: none;
+
+
+  background: transparent;
+
+  border: none;
+
+
+  width: 100%;
+
+  cursor: pointer;
+
+
+  font-family: var(--font-ar);
+
+
+  transition:
+    color .3s ease,
+    background .3s ease;
+
+
+  border-right: 3px solid transparent;
+
+}
+
+
+
+.sidebar__item i {
+
+  font-size: 19px;
+
+  flex-shrink: 0;
+}
+
+
+
+.sidebar__item:hover {
+
+
+  color: rgba(255,255,255,.9);
+
+
+  background: rgba(255,255,255,.07);
+
+}
+
+
+
+
+.sidebar__item.is-active {
+
+
+  color: #fff;
+
+
+  background:
+    rgba(247,130,113,.15);
+
+
+  border-right-color: var(--coral);
+
+}
+
+
+
+
+
+/* =========================
+   Footer Logout
+========================= */
+
+
+.sidebar__footer {
+
+
+  position: relative;
+
+  z-index: 2;
+
+
+  padding: 12px;
+
+
+  border-top:
+    1px solid rgba(255,255,255,.06);
+
+}
+
+
+
+.sidebar__logout {
+
+
+  color:
+    rgba(255,255,255,.35);
+
+}
+
+
+
+.sidebar__logout:hover {
+
+
+  color:
+    rgba(255,255,255,.75);
+
+
+  background:
+    rgba(255,255,255,.05);
+
+}
