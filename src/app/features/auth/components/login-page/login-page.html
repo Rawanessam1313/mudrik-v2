@@ -46,11 +46,7 @@
         <p style="color: var(--text-muted);">يسعدنا رؤيتك مرة أخرى</p>
       </div>
 
-      <!--<div class="role-selector">
-        <button type="button" class="role-btn" [class.active]="currentRole === 'parent'" (click)="selectRole('parent')">ولي أمر</button>
-        <button type="button" class="role-btn" [class.active]="currentRole === 'admin'" (click)="selectRole('admin')">مسؤول النظام</button>
-      </div>-->
-
+     
       <div *ngIf="showAlert" class="alert" [ngClass]="'alert-' + alertType" style="display: block;">
         {{ alertMessage }}
       </div>
@@ -82,11 +78,11 @@
         </div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%;" [class.btn-loading]="isLoading" [disabled]="isLoading">
-          {{ currentRole === 'admin' ? 'دخول المسؤول' : 'دخول' }}
+         تسجيل دخول
         </button>
 
         <p class="auth-footer">
-          ليس لديك حساب؟ <a routerLink="/auth/register">أنشئ حساباً الآن</a>
+          ليس لديك حساب؟ <a [routerLink]="['/auth/register-page']" >أنشئ حساباً الآن</a>
         </p>
       </form>
     </div>

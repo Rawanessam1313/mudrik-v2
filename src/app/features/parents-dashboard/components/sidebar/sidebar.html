@@ -1,0 +1,46 @@
+<aside class="sidebar">
+
+ <!-- Logo -->
+<div class="sidebar__logo">
+  <div class="sidebar__logo-icon">
+    <img src="logo-for-sidebar.png" alt="مدرك">
+  </div>
+  
+
+</div>
+
+  <!-- Nav links -->
+  <nav class="sidebar__nav" aria-label="القائمة الرئيسية">
+    <a
+      *ngFor="let item of navItems"
+      class="sidebar__item"
+      [routerLink]="item.path"
+      routerLinkActive="is-active"
+      [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+    >
+      <i class="ti {{ item.icon }}" aria-hidden="true"></i>
+      <span>{{ item.label }}</span>
+    </a>
+  </nav>
+ <span class="star star-sm" style="top: 8%; left: 15%; color:#ffc145; animation-delay:0s;">★</span>
+
+<span class="star star-xs" style="top: 18%; left: 78%; color:#71b8e4; animation-delay:.6s;">★</span>
+
+<span class="star" style="top: 35%; left: 25%; color:#f78271; animation-delay:1s;">★</span>
+
+<span class="star star-xs" style="top: 48%; left: 82%; color:#a7d08c; animation-delay:1.5s;">★</span>
+
+<span class="star star-sm" style="top: 62%; left: 12%; color:#ffc145; animation-delay:2s;">★</span>
+
+<span class="star" style="top: 78%; left: 70%; color:#71b8e4; animation-delay:.8s;">★</span>
+
+<span class="star star-xs" style="top: 90%; left: 35%; color:#f78271; animation-delay:1.8s;">★</span>
+  <!-- Logout -->
+  <div class="sidebar__footer">
+    <button class="sidebar__item sidebar__logout" (click)="logout()" type="button">
+      <i class="ti ti-logout" aria-hidden="true"></i>
+      <span>تسجيل الخروج</span>
+    </button>
+  </div>
+
+</aside>

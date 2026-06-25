@@ -31,7 +31,7 @@
 
   <!-- CTA -->
   <div class="navbar-actions" [class.open]="isMenuOpen">
-    <a class="btn-start" routerLink="login-page" (click)="closeMenu()">ابدأ الآن</a>
+    <a class="btn-start" [routerLink]="['/auth/login-page']" (click)="closeMenu()">ابدأ الآن</a>
   </div>
 
   <button class="menu-toggle" type="button" [attr.aria-expanded]="isMenuOpen" aria-label="فتح القائمة"
