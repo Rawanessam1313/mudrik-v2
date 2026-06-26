@@ -79,7 +79,7 @@ export class Auth {
   logout(): void {
     this.tokenService.clearAll();
     this.isAuthenticated.set(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login-page']);
   }
 
   // تجديد التوكن
