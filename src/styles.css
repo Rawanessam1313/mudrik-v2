@@ -97,8 +97,22 @@ body {
 
 body {
   background:
-   
     linear-gradient(180deg, var(--background), #fff);
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+app-root,
+main,
+section {
+  display: block;
+  overflow-x: hidden;
 }
 
 /* Links */
