@@ -19,10 +19,10 @@ export class Sidebar {
     private router = inject(Router);
  
   readonly navItems: NavItem[] = [
+     { label: 'الملف الشخصي', path: '/parent/profile', icon: 'ti-user-circle' },
     { label: 'لوحة التحكم', path: '/parent/overview',  icon: 'ti-layout-dashboard', exact: true },
-    { label: 'أطفالي',      path: '/parent/children',  icon: 'ti-users' },
-    { label: 'التقارير',    path: '/parent/reports',   icon: 'ti-chart-bar' },
-    { label: 'الملف الشخصي', path: '/parent/profile', icon: 'ti-user-circle' },
+   
+   
   ];
  
   logout(): void {

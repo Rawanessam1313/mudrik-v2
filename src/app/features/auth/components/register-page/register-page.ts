@@ -21,7 +21,7 @@ export class RegisterPageComponent implements OnDestroy {
   password = '';
   confirmPassword = '';
 
-  termsAccepted = false;
+  // termsAccepted = false;
   showPassword = false;
 
   passwordStrengthWidth = '0%';
@@ -99,10 +99,10 @@ export class RegisterPageComponent implements OnDestroy {
     this.passwordError = this.password.length < 8;
     this.confirmPasswordError = this.password !== this.confirmPassword;
 
-    if (!this.termsAccepted) {
-      this.displayAlert('يجب الموافقة على الشروط والأحكام', 'error');
-      return;
-    }
+    // if (!this.termsAccepted) {
+    //   this.displayAlert('يجب الموافقة على الشروط والأحكام', 'error');
+    //   return;
+    // }
 
     if (
       this.nameError ||
