@@ -1,0 +1,307 @@
+header.dash-header {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 1.7rem;
+  min-height: 150px;
+  
+  background: var(--navy);
+  box-shadow: 0 24px 48px rgba(15, 40, 80, 0.18);
+}
+
+/* =====================
+      STARS
+===================== */
+.star {
+  position: absolute;
+  z-index: 1;
+  font-size: 22px;
+  opacity: .85;
+  animation: twinkle 2.8s infinite ease-in-out alternate;
+}
+
+.star-sm {
+  font-size: 17px;
+}
+
+.star-xs {
+  font-size: 12px;
+  opacity: .7;
+}
+
+@keyframes twinkle {
+  from {
+    transform: scale(1);
+    opacity: .55;
+  }
+  to {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+
+/* =====================
+      START AREA
+===================== */
+.dash-header__start {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+  z-index: 5; /* تم دمج الـ z-index وتحديثه هنا */
+}
+
+.dash-header__brand {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  gap: 0.5rem;           
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 3rem;
+  height: 3rem ;
+
+  display: grid;
+  place-items: center;
+  
+}
+
+.dash-header__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* =====================
+        WELCOME
+===================== */
+.dash-header__greeting {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-header__welcome {
+  margin: 0;
+  color: #fff;
+  font-size: 1.50rem;
+  font-weight: 800;
+}
+
+.dash-header__subtitle {
+  margin: .35rem 0 0;
+  color: rgba(255,255,255,.75);
+  font-size: .9rem;
+}
+
+/* =====================
+        NAV
+===================== */
+.dash-header__nav {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  position: relative;
+  z-index: 5; /* تم دمج الـ z-index وتحديثه هنا */
+}
+
+.dash-header__nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: .75rem 1rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,.12);
+  color: white;
+  font-weight: 700;
+  transition: .25s;
+  text-decoration: none;
+}
+
+.dash-header__nav-link:hover,
+.dash-header__nav-link.is-active {
+  background: #fff;
+  color: var(--navy);
+}
+
+/* =====================
+       ACTIONS
+===================== */
+.dash-header__actions {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  position: relative;
+  z-index: 5; /* تم دمج الـ z-index وتحديثه هنا */
+}
+
+/* ADD CHILD BUTTON */
+.dash-header__btn-add {
+  height: 50px;
+  padding: 0 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--coral), #f59a8c);
+  color: white;
+  font-size: .95rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(247,130,113,.28);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.dash-header__btn-add:hover {
+  background: linear-gradient(135deg, var(--coral-dark), var(--coral));
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(247,130,113,.38);
+}
+
+/* =====================
+       NOTIFICATION
+===================== */
+.dash-header__icon-btn {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 16px;
+  background: white;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.dash-header__icon-btn.has-notif::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+/* =====================
+        PROFILE
+===================== */
+.dash-header__profile {
+  position: relative;
+  z-index: 100; /* دمج وتوحيد خصائص الملف الشخصي هنا */
+}
+
+.dash-header__profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .55rem .9rem;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  cursor: pointer;
+}
+
+.dash-header__avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #eef6ff;
+  color: #0f4fbf;
+  font-weight: 800;
+}
+
+.dash-header__profile-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* DROPDOWN */
+.dash-header__dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + .8rem);
+  width: 240px;
+  padding: .85rem;
+  border-radius: 1.3rem;
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(0,0,0,.18);
+  z-index: 999; /* تم تعديل القيمة للقيمة الأعلى المذكورة لاحقاً وكتابة الأنيميشن هنا مباشرة */
+  animation: dropdown .2s ease;
+}
+
+.dash-header__dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .8rem;
+  border: none;
+  background: transparent;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.dash-header__dropdown-item:hover {
+  background: #f5f8ff;
+}
+
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+        RESPONSIVE
+===================== */
+@media(max-width:980px){
+  header.dash-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .dash-header__start,
+  .dash-header__nav,
+  .dash-header__actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media(max-width:640px){
+  header.dash-header {
+    padding: 1rem;
+  }
+
+  .dash-header__btn-add,
+  .dash-header__profile-trigger {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dash-header__nav {
+    flex-wrap: wrap;
+  }
+}

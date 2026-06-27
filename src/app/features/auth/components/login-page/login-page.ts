@@ -69,7 +69,7 @@ export class LoginPageComponent implements OnDestroy {
         if (role === 'Admin') {
           route = '/admin-dashboard';
         } else if (role === 'User') {
-          route = '/parent-dashboard';
+          route = '/parent-dashboard/overview';
         }
         this.router.navigate([route]);
       }, 1000);

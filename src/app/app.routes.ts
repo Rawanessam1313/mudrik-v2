@@ -20,8 +20,12 @@ export const routes: Routes = [
   //  لوحة تحكم ولي الأمر (User)
   {
     path: 'parent-dashboard',
-    canActivate: [authGuard, roleGuard(['User'])],   // تم التغيير من 'Parent' إلى 'User'
-    component: ParentsDashboard
+    canActivate: [authGuard, roleGuard(['User'])],
+    component: ParentsDashboard,
+    loadChildren: () =>
+      import('./features/parents-dashboard/parents.routes').then(
+        (m) => m.PARENT_ROUTES
+      ),
   },
 
   //  لوحة تحكم المدير (Admin)

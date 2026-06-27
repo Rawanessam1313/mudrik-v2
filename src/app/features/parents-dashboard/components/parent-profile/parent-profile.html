@@ -1,1 +1,95 @@
-<p>parent-profile works!</p>
+<!-- <section class="profile-card card">
+
+  @if (!isEditing) {
+    <div class="profile-card__view">
+      <div class="profile-card__top">
+        <div class="profile-card__identity">
+          @if (profile.avatarUrl) {
+            <img class="profile-card__avatar" [src]="profile.avatarUrl" alt="صورة ولي الأمر" />
+          } @else {
+            <div class="profile-card__avatar profile-card__avatar--placeholder">{{ initials }}</div>
+          }
+
+          <div>
+            <h2 class="profile-card__name">{{ profile.fullName }}</h2>
+            <p class="profile-card__email">{{ profile.email }}</p>
+          </div>
+        </div>
+
+        <button class="profile-card__edit-btn" type="button" (click)="startEdit()">
+          <i class="ti ti-edit" aria-hidden="true"></i>
+          تعديل الملف
+        </button>
+      </div>
+
+      <div class="profile-card__details">
+        <div class="profile-card__field">
+          <span class="profile-card__label">رقم الجوال</span>
+          <span class="profile-card__value">{{ profile.phoneNumber || '—' }}</span>
+        </div>
+        <div class="profile-card__field">
+          <span class="profile-card__label">المدينة</span>
+          <span class="profile-card__value">{{ profile.city || '—' }}</span>
+        </div>
+        <div class="profile-card__field profile-card__field--wide">
+          <span class="profile-card__label">معلومات ولي الأمر</span>
+          <span class="profile-card__value">{{ profile.bio || '—' }}</span>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <form class="profile-card__form" (ngSubmit)="saveProfile()">
+      <div class="profile-card__form-head">
+        <h2 class="profile-card__form-title">تعديل الملف الشخصي</h2>
+        <p class="profile-card__form-sub">حدّث معلوماتك واحفظ التغييرات</p>
+      </div>
+
+      <div class="profile-card__form-grid">
+        <div class="profile-card__avatar-edit">
+          @if (draft.avatarUrl) {
+            <img class="profile-card__avatar" [src]="draft.avatarUrl" alt="صورة ولي الأمر" />
+          } @else {
+            <div class="profile-card__avatar profile-card__avatar--placeholder">{{ initials }}</div>
+          }
+          <label class="profile-card__upload">
+            <input type="file" accept="image/*" hidden (change)="onAvatarChange($event)" />
+            تغيير الصورة
+          </label>
+        </div>
+
+        <div class="profile-card__inputs">
+          <label class="profile-card__input-group">
+            <span>الاسم الكامل</span>
+            <input type="text" name="fullName" [(ngModel)]="draft.fullName" required />
+          </label>
+
+          <label class="profile-card__input-group">
+            <span>البريد الإلكتروني</span>
+            <input type="email" name="email" [(ngModel)]="draft.email" required />
+          </label>
+
+          <label class="profile-card__input-group">
+            <span>رقم الجوال</span>
+            <input type="tel" name="phoneNumber" [(ngModel)]="draft.phoneNumber" />
+          </label>
+
+          <label class="profile-card__input-group">
+            <span>المدينة</span>
+            <input type="text" name="city" [(ngModel)]="draft.city" />
+          </label>
+
+          <label class="profile-card__input-group profile-card__input-group--wide">
+            <span>معلومات ولي الأمر</span>
+            <textarea name="bio" rows="3" [(ngModel)]="draft.bio"></textarea>
+          </label>
+        </div>
+      </div>
+
+      <div class="profile-card__actions">
+        <button class="profile-card__save" type="submit">حفظ</button>
+        <button class="profile-card__cancel" type="button" (click)="cancelEdit()">إلغاء</button>
+      </div>
+    </form>
+  }
+
+</section> -->

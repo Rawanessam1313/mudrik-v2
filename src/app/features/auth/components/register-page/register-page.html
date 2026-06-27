@@ -1,5 +1,7 @@
 <div class="auth-wrapper" id="register-page">
 <aside class="auth-info">
+
+
   <div class="auth-info-content">
 
     <a routerLink="/" class="logo">
@@ -148,14 +150,6 @@
                    (input)="onInputChange()" required>
           </div>
           <div class="error-message" *ngIf="confirmPasswordError">كلمات المرور غير متطابقة</div>
-        </div>
-
-        <!-- Terms -->
-        <div class="checkbox-group">
-          <input type="checkbox" id="terms" [(ngModel)]="termsAccepted" name="terms">
-          <label class="checkbox-label" for="terms">
-            أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
-          </label>
         </div>
 
         <button type="submit"  class="auth-btn" style="width: 100%;"

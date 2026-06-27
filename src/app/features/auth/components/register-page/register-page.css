@@ -1,3 +1,7 @@
+/* =========================
+   Wrapper
+========================= */
+
 .auth-wrapper {
   display: flex;
   width: 100%;
@@ -6,532 +10,312 @@
   background: var(--background);
 }
 
-
-/* =================
+/* =========================
    Info Side
-================= */
+========================= */
 
 .auth-info {
   flex: 1;
   height: 100vh;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--navy) 0%,
-      var(--navy-light) 100%
-    );
-
-  color: white;
   padding: 2.5rem;
-
   display: flex;
-  flex-direction: column;
   justify-content: center;
-
+  align-items: center;
   position: relative;
   overflow: hidden;
-  box-sizing: border-box;
+  color: white;
+  
+  /* تم تعديل الخلفية هنا لتصبح سادة */
+  background: var(--navy); 
 }
-
 
 .auth-info::before {
-  content: '';
-
+  content: "";
   position: absolute;
+  width: 450px;
+  height: 450px;
+  right: -150px;
   top: -120px;
-  right: -120px;
-
-  width: 420px;
-  height: 420px;
-
-  background: rgba(247,130,113,.25);
-
+  background: rgba(249, 247, 247, 0.25);
   border-radius: 50%;
   filter: blur(90px);
-
-  animation: pulse 8s infinite alternate;
 }
-
 
 .auth-info-content {
   position: relative;
   z-index: 2;
+  max-width: 520px;
 }
 
+/* logo */
 
 .auth-info .logo {
   display: block;
-  margin-bottom: 1.5rem;
-}
-
-
-.logo-img {
-  height: 90px;
-  width: auto;
-}
-
-
-.auth-info h1 {
-  font-size: var(--text-2xl);
-  line-height: 1.2;
-  margin-bottom: .8rem;
-}
-
-
-.auth-info p {
-  font-size: var(--text-base);
-  color: rgba(255,255,255,.85);
-  max-width: 500px;
-  line-height: 1.7;
   margin-bottom: 1rem;
 }
 
+.auth-info .logo-img {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+}
 
-/* Features */
+.auth-info h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.auth-info p {
+  color: rgba(255, 255, 255, .85);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* features */
 
 .feature-highlights {
   display: flex;
   flex-direction: column;
-  gap: .8rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
-
 
 .feature-item {
   display: flex;
-  align-items: flex-start;
-  gap: .8rem;
+  gap: 1rem;
+  align-items: center;
 }
-
 
 .feature-icon-box {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .15);
+  border-radius: 14px;
 }
 
+.feature-icon-box i {
+  font-size: 1.1rem;
+}
 
 .feature-text h4 {
   margin: 0 0 .2rem;
 }
 
-
 .feature-text p {
   margin: 0;
-  font-size: var(--text-sm);
+  font-size: .9rem;
 }
 
-
-/* Benefits */
-
-.benefit-list {
-  margin-top: 1rem;
-}
-
-
-.benefit-item {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-
-  margin-bottom: .8rem;
-  font-weight: 700;
-}
-
-
-.benefit-item i {
-  width: 34px;
-  height: 34px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-  background: rgba(255,255,255,.18);
-}
-
-
-.trust-indicators {
-  color: rgba(255,255,255,.75);
-  font-size: var(--text-sm);
-}
-
-
-@keyframes pulse {
-
-  from {
-    transform: scale(1);
-    opacity: .5;
-  }
-
-  to {
-    transform: scale(1.2);
-    opacity: .9;
-  }
-
-}
-
-
-
-/* =================
+/* =========================
    Form
-================= */
-
+========================= */
 
 .auth-form-container {
-
   flex: 1;
   height: 100vh;
-
-  padding: 2rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  overflow-y: auto;
-
-  box-sizing: border-box;
+  padding: 2rem;
+  overflow: auto;
 }
-
-
 
 .form-card {
-
   width: 100%;
-  max-width: 500px;
-
+  max-width: 470px;
   padding: 2rem;
-
   background: var(--surface);
-
-  border-radius: var(--radius-lg);
-
+  border-radius: 24px;
   border: 1px solid var(--border);
-
   box-shadow: var(--shadow-lg);
-
-  box-sizing: border-box;
 }
 
-
+.form-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
 .form-header h2 {
-
-  font-size: var(--text-xl);
+  margin: 0 0 .5rem;
   color: var(--foreground);
+}
 
+/* =========================
+ Inputs
+========================= */
+
+.form-group {
   margin-bottom: 1rem;
 }
 
-
-
 .form-label {
-
-  font-size: var(--text-sm);
+  display: block;
+  margin-bottom: .4rem;
+  font-weight: 700;
+  font-size: .9rem;
   color: var(--foreground);
-
 }
 
-
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
 
 .form-input {
-
   width: 100%;
-
-  padding: .85rem 1rem;
-  padding-left: 3rem;
-
-  border-radius: var(--radius);
-
+  height: 48px;
+  padding: 0 1rem 0 3rem;
+  border-radius: 14px;
   border: 1px solid var(--border-strong);
-
   background: white;
-
   color: var(--foreground);
-
+  font-size: .95rem;
   box-sizing: border-box;
+  transition: .2s;
 }
-
-
 
 .form-input:focus {
-
   outline: none;
-
   border-color: var(--primary);
-
-  box-shadow:
-    0 0 0 4px var(--primary-light);
-
+  box-shadow: 0 0 0 4px var(--primary-light);
 }
-
-
 
 .form-input.invalid {
-
   border-color: var(--coral-dark);
-
 }
 
+/* eye icon */
 
-
-.error-message {
-
-  color: var(--coral-dark);
-  font-size: var(--text-xs);
-
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--foreground-muted);
+  cursor: pointer;
+  z-index: 3;
+  transition: .2s;
 }
 
+.input-icon:hover {
+  color: var(--primary);
+}
 
+/* =========================
+   Password strength
+========================= */
 
 .strength-meter {
-
+  height: 5px;
+  margin-top: .5rem;
   background: var(--border);
-
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-
-
-.checkbox-label {
-
-  font-size: var(--text-sm);
-  color: var(--foreground-muted);
-
+.strength-bar {
+  height: 100%;
+  transition: .3s;
 }
 
-
-
-.checkbox-label a,
-.login-prompt a {
-
-  color: var(--primary);
-
+.strength-text {
+  font-size: .8rem;
+  margin-top: .3rem;
 }
 
+/* =========================
+   Alerts
+========================= */
 
-
-.login-prompt {
-
-  color: var(--foreground-muted);
-
+.alert {
+  padding: .8rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-size: .9rem;
 }
-
-
 
 .alert-error {
-
   background: var(--coral-light);
-
   color: #9f2d22;
-
-  border: 1px solid #ffd2ca;
-
 }
-
-
 
 .alert-success {
-
   background: var(--green-light);
-
   color: #256029;
-
-  border: 1px solid #cde8c3;
-
 }
-/* ==========================
-   Auth Buttons (Login/Register)
-========================== */
 
+/* =========================
+   Button
+========================= */
 
-.auth-btn,
-button.auth-btn,
-input[type="submit"] {
-
-  width:100%;
-
-  padding: .9rem 1.2rem;
-
-  border:none;
-  border-radius: var(--radius);
-
+.auth-btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 14px;
   background: var(--primary);
-  color:white;
-
-  font-size: var(--text-base);
-  font-weight:700;
-
-  cursor:pointer;
-
-  transition:
-    background .2s ease,
-    transform .2s ease,
-    box-shadow .2s ease;
-
-  -webkit-tap-highlight-color: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .25s;
 }
 
-
-
-/* Hover */
-
-.auth-btn:hover,
-button.auth-btn:hover,
-input[type="submit"]:hover {
-
+.auth-btn:hover {
   background: var(--primary-dark);
-
-  transform: translateY(-1px);
-
+  transform: translateY(-2px);
 }
 
-
-
-/* بعد الضغط */
-
-.auth-btn:active,
-button.auth-btn:active,
-input[type="submit"]:active {
-
-  transform: scale(.98);
-
-  background: var(--primary-dark);
-
+.auth-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
 }
 
+/* =========================
+   Bottom link
+========================= */
 
-
-/* إزالة الأزرق من المتصفح */
-
-.auth-btn:focus,
-button.auth-btn:focus,
-input[type="submit"]:focus {
-
-  outline:none;
-
-  box-shadow:none;
-
-  background:var(--primary);
-
+.login-prompt {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--foreground-muted);
 }
 
-
-
-/* لو الزرار disabled */
-
-.auth-btn:disabled,
-button.auth-btn:disabled {
-
-  opacity:.6;
-
-  cursor:not-allowed;
-
-  transform:none;
-
+.login-prompt a {
+  color: var(--primary);
+  font-weight: 800;
+  text-decoration: none;
 }
 
+/* =========================
+   Responsive
+========================= */
 
-
-/* الروابط تحت الفورم */
-
-.login-prompt a,
-.register-prompt a {
-
-  color:var(--primary);
-
-  text-decoration:none;
-
-}
-
-
-.login-prompt a:hover,
-.register-prompt a:hover {
-
-  color:var(--primary-dark);
-
-}
-
-
-
-
-/* ==========================
-   Inputs
-========================== */
-
-.form-input {
-
-  outline:none;
-
-}
-
-
-.form-input:focus {
-
-  border-color:var(--primary);
-
-  box-shadow:
-    0 0 0 3px var(--primary-light);
-
-}
-
-
-
-/* ==========================
- Mobile
-========================== */
-
-@media(max-width:480px){
-
-.auth-btn,
-button.auth-btn,
-input[type="submit"]{
-
-  padding:.8rem;
-
-}
-
-}
-
-
-
-/* =================
- Responsive
-================= */
-
-
-@media(max-width:1024px) {
-
-
+@media(max-width:900px) {
   .auth-info {
     display: none;
   }
-
-
   .auth-form-container {
-
     width: 100%;
     padding: 1rem;
-
   }
-
+  .form-card {
+    max-width: 430px;
+    padding: 1.5rem;
+  }
 }
 
-
-
 @media(max-width:480px) {
-
-
   .form-card {
-
-    padding: 1.2rem;
-
     background: transparent;
     border: none;
     box-shadow: none;
-
+    padding: 1rem;
   }
-
-
 }

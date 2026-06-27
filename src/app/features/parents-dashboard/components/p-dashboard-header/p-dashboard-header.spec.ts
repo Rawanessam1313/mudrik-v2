@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ParentProfileComponent } from './parent-profile';
+import { PDashboardHeader } from './p-dashboard-header';
 
-describe('ParentProfileComponent', () => {
-  let component: ParentProfileComponent;
-  let fixture: ComponentFixture<ParentProfileComponent>;
+describe('PDashboardHeader', () => {
+  let component: PDashboardHeader;
+  let fixture: ComponentFixture<PDashboardHeader>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ParentProfileComponent],
+      imports: [PDashboardHeader],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ParentProfileComponent);
+    fixture = TestBed.createComponent(PDashboardHeader);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

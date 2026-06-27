@@ -1,12 +1,9 @@
 <nav class="navbar" dir="rtl" [class.menu-open]="isMenuOpen">
 
-  <!-- Logo -->
   <a class="navbar-logo" routerLink="/index" (click)="closeMenu()">
     <img class="logo-img" src="mudrik.png" alt="مدرك" />
-
   </a>
 
-  <!-- Center Menu -->
   <ul class="navbar-links" [class.open]="isMenuOpen">
     <li>
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
@@ -15,27 +12,31 @@
     </li>
     <li>
       <a [routerLink]="['/']" fragment="why-choose-mudrik" (click)="closeMenu()">
-        لماذا تختار مُدْرِك</a>
-    </li>
-
-    <li>
-      <a  [routerLink]="['/']" fragment="how-mudrick-work" (click)="closeMenu()">كيف نعمل</a>
+        لماذا تختار مُدْرِك
+      </a>
     </li>
     <li>
-      <a   [routerLink]="['/']" fragment="for-parents" (click)="closeMenu()">لأولياء الأمور</a>
+      <a [routerLink]="['/']" fragment="how-mudrick-work" (click)="closeMenu()">
+        كيف نعمل
+      </a>
     </li>
     <li>
-      <a [routerLink]="['/auth/login-page']" (click)="closeMenu()">تسجيل الدخول</a>
+      <a [routerLink]="['/']" fragment="for-parents" (click)="closeMenu()">
+        لأولياء الأمور
+      </a>
     </li>
   </ul>
 
-  <!-- CTA -->
   <div class="navbar-actions" [class.open]="isMenuOpen">
-    <a class="btn-start" [routerLink]="['/auth/login-page']" (click)="closeMenu()">ابدأ الآن</a>
+    <a class="btn-login" [routerLink]="['/auth/login-page']" (click)="closeMenu()">
+      تسجيل الدخول
+    </a>
+    <a class="btn-start" [routerLink]="['/auth/register-page']" (click)="closeMenu()">
+      ابدأ الآن
+    </a>
   </div>
 
-  <button class="menu-toggle" type="button" [attr.aria-expanded]="isMenuOpen" aria-label="فتح القائمة"
-    (click)="toggleMenu()">
+  <button class="menu-toggle" type="button" [attr.aria-expanded]="isMenuOpen" aria-label="فتح القائمة" (click)="toggleMenu()">
     <span></span>
     <span></span>
     <span></span>
