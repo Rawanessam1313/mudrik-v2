@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  :host > * {
+    scroll-margin-top: 5rem;
+  }
+}
