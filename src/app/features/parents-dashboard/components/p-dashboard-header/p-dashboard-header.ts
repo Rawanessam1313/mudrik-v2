@@ -34,6 +34,7 @@ export class PDashboardHeader {
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
+    
   }
 
   closeDropdown(): void {

@@ -235,7 +235,7 @@ header.dash-header {
 /* DROPDOWN */
 .dash-header__dropdown {
   position: absolute;
-  right: 0;
+  right: -40px;
   top: calc(100% + .8rem);
   width: 240px;
   padding: .85rem;
