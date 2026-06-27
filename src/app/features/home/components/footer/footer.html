@@ -1,16 +1,19 @@
 <footer class="footer" dir="rtl">
 
   <!-- stars -->
-  <span class="star" style="top:70%;left:90%;color:#ffc145;">★</span>
+  
   <span class="star" style="top:80%;left:18%;color:#ffc145;">★</span>
-  <span class="star" style="top:30%;left:8%;color:#f78271;">★</span>
+  <span class="star" style="top:47%;left:10%;color:#f78271;">★</span>
   <span class="star" style="top:5%;left:17%;color:#71b8e4;">★</span>
   <span class="star" style="top:60%;left:37%;color:#ffc145;">★</span>
   <span class="star" style="top:8%;left:48%;color:#f78271;">★</span>
   <span class="star" style="top:5%;left:72%;color:#71b8e4;">★</span>
   <span class="star" style="top:18%;left:32%;color:#a7d08c;">★</span>
-
-
+  <span class="star" style="top:80%;left:70%;color:#f78271;">★</span>
+  <span class="star" style="top:55%;left:79%;color:#71b8e4;">★</span>
+  <span class="star" style="top:95%;left:36%;color:#a7d08c;">★</span> 
+   <span class="star" style="top:8%;left:90%;color:#ffc145;">★</span>
+    <span class="star" style="top:90%;left:90%;color:#edf7e8;">★</span>
   <!-- Top section -->
   <section class="footer-cta">
 
@@ -25,7 +28,7 @@
       </p>
 
 
-      <a class="btn-hero-primary"[routerLink]="['/auth/login-page']">ابدأ رحلة طفلك الآن</a>
+      <a class="btn-hero-primary" [routerLink]="['/auth/login-page']">ابدأ رحلة طفلك الآن</a>
     </div>
 
   </section>
@@ -50,13 +53,6 @@
       </p>
 
 
-      <div class="social">
-        <i>in</i>
-        <i>◎</i>
-        <i>𝕏</i>
-        <i>f</i>
-      </div>
-
 
     </div>
 
@@ -66,10 +62,21 @@
 
       <h3>روابط سريعة</h3>
 
-      <a>الرئيسية</a>
-      <a>المميزات</a>
-      <a>كيف نعمل</a>
-      <a>أولياء الأمور</a>
+      <a routerLink="/" routerLinkActive="active">
+        الرئيسية
+      </a>
+
+      <a [routerLink]="['/']" fragment="why-choose-mudrik">
+        لماذا تختار مُدْرِك
+      </a>
+
+      <a [routerLink]="['/']" fragment="how-mudrick-work">
+        كيف نعمل
+      </a>
+
+      <a [routerLink]="['/']" fragment="for-parents">
+        لأولياء الأمور
+      </a>
 
     </div>
 
@@ -80,8 +87,10 @@
 
       <h3>تواصل معنا</h3>
 
-      <p>✉ info@mudrik.ai</p>
-      <p>☎ +20 123 456 789</p>
+      <p><a href="mailto:rawanessamwork@gmail.com?subject=تواصل معك">
+      <i class="ti ti-mail"> </i> rawanessamwork@gmail.com</a></p>
+    
+      <p>☎ </p>
       <p>📍 مصر</p>
 
     </div>
