@@ -1,62 +1,31 @@
-<section class="overview">
-
-  <div class="overview__stats">
-    @for (stat of stats; track stat.label) {
-      <article class="stat-card stat-card--{{ stat.color }}">
-        <div class="stat-card__icon">
-          <i class="ti {{ stat.icon }}" aria-hidden="true"></i>
-        </div>
-        <div>
-          <p class="stat-card__value">{{ stat.value }}</p>
-          <p class="stat-card__label">{{ stat.label }}</p>
-        </div>
-      </article>
-    }
+<section class="overview-page" dir="rtl">
+  <div class="overview-header">
+    <div>
+      <p class="overview-subtitle">بوابة ولي الأمر</p>
+      <h1>مرحباً بك، {{ parentName }}</h1>
+      <p class="overview-note">
+        هذه هي لوحة التحكم الخاصة بك. تصفح الإحصاءات الأساسية وادخل على الملف الشخصي لتحديث بياناتك.
+      </p>
+    </div>
   </div>
 
-  <section class="overview__section">
-    <div class="overview__section-head">
-      <h2 class="overview__title">أطفالي</h2>
-      <p class="overview__subtitle">تابع تقدّم أطفالك في رحلة التعلّم</p>
-    </div>
+  <div class="overview-grid">
+    <article class="overview-card">
+      <h2>الأطفال المسجلون</h2>
+      <p>يمكنك متابعة أداء طفلك وتحديث ملفه من لوحة التحكم.</p>
+      <span>2</span>
+    </article>
 
-    <div class="overview__children">
-      @for (child of children; track child.name) {
-        <app-child-card
-          [name]="child.name"
-          [age]="child.age"
-          [progress]="child.progress"
-          [avatarUrl]="child.avatar"
-        />
-      }
-    </div>
-  </section>
+    <article class="overview-card overview-card--soft">
+      <h2>المهام القادمة</h2>
+      <p>راجع النشاطات القادمة وابقى على تواصل مع معلمي طفلك.</p>
+      <span>4</span>
+    </article>
 
-  <section class="overview__section">
-    <div class="overview__section-head">
-      <h2 class="overview__title">نشاط اليوم</h2>
-      <p class="overview__subtitle">آخر التحديثات من منصة مدرك</p>
-    </div>
-
-    <div class="activity-card card">
-      <ul class="activity-list">
-        <li>
-          <span class="activity-dot activity-dot--green"></span>
-          <span>سارة أكملت درس «الحروف العربية»</span>
-          <time>منذ ساعتين</time>
-        </li>
-        <li>
-          <span class="activity-dot activity-dot--sky"></span>
-          <span>يوسف حصل على شارة «المتعلّم النشيط»</span>
-          <time>اليوم</time>
-        </li>
-        <li>
-          <span class="activity-dot activity-dot--coral"></span>
-          <span>تم إضافة مهمة جديدة: قراءة قصة قصيرة</span>
-          <time>أمس</time>
-        </li>
-      </ul>
-    </div>
-  </section>
-
+    <article class="overview-card overview-card--accent">
+      <h2>آخر تحديث</h2>
+      <p>قم بتحديث ملفك الشخصي للحفاظ على بيانات الاتصال الحديثة.</p>
+      <span>الوقت الحالي</span>
+    </article>
+  </div>
 </section>

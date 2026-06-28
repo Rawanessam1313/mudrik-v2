@@ -1,64 +1,257 @@
-import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ParentProfileService } from '../../services/parent-profile.service';
-import { ParentProfile as ParentProfileData } from '../../models/parent-profile.model';
+import {
+  Component,
+  inject,
+  OnInit,
+  signal
+} from '@angular/core';
+
+import {
+  CommonModule
+} from '@angular/common';
+
+import {
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+
+import {
+  ParentProfileService
+} from '../../services/parent-profile.service';
+
+import {
+  UpdateParentProfileDto
+} from '../../models/Iparent';
+
+import {
+  Auth
+} from '../../../../core/services/auth';
+
+
 
 @Component({
   selector: 'app-parent-profile',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './parent-profile.html',
-  styleUrl: './parent-profile.css',
+  styleUrl: './parent-profile.css'
 })
-export class ParentProfileComponent {
-  private readonly profileService = inject(ParentProfileService);
+export class ParentProfile implements OnInit {
 
-  isEditing = false;
-  draft: ParentProfileData = { ...this.profileService.profile() };
 
-  get profile(): ParentProfileData {
-    return this.profileService.profile();
+  private readonly service =
+    inject(ParentProfileService);
+
+
+  private readonly fb =
+    inject(FormBuilder);
+
+
+  private readonly auth =
+    inject(Auth);
+
+
+
+  profile =
+    this.service.profile;
+
+
+  initials =
+    this.service.initials;
+
+
+  isLoading =
+    this.service.isLoading;
+
+
+  serverError =
+    this.service.error;
+
+
+
+  editMode =
+    signal(false);
+
+
+  saveSuccess =
+    signal(false);
+
+
+
+
+
+  form = this.fb.nonNullable.group({
+
+    fullName: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(2)
+      ]
+    ],
+
+
+    phoneNumber: [
+      ''
+    ],
+
+
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.email
+      ]
+    ]
+
+  });
+
+
+
+
+
+  ngOnInit() {
+
+    this.service.loadProfile();
+
   }
 
-  get initials(): string {
-    return this.profileService.initials;
-  }
 
-  startEdit(): void {
-    this.draft = { ...this.profile };
-    this.isEditing = true;
-  }
 
-  cancelEdit(): void {
-    this.draft = { ...this.profile };
-    this.isEditing = false;
-  }
 
-  saveProfile(): void {
-    const fullName = this.draft.fullName.trim();
-    const email = this.draft.email.trim();
 
-    if (!fullName || !email) {
+
+  startEdit() {
+
+    const user =
+      this.profile();
+
+
+    if (!user)
       return;
-    }
 
-    this.profileService.updateProfile({
-      ...this.draft,
-      fullName,
-      email,
-      phoneNumber: this.draft.phoneNumber.trim(),
-     
+
+
+    this.form.patchValue({
+
+      fullName: user.fullName,
+
+      phoneNumber: user.phoneNumber,
+
+      email: user.email
+
     });
 
-    this.isEditing = false;
+
+    this.editMode.set(true);
+
   }
 
-  onAvatarChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file = input.files?.[0];
-    if (!file) {
+
+
+
+
+
+
+  cancelEdit() {
+
+    this.editMode.set(false);
+
+  }
+
+
+
+
+
+
+
+  saveProfile() {
+
+
+    if (
+      this.form.invalid ||
+      this.isLoading()
+    )
       return;
-    }
 
-   
+
+
+    const oldEmail =
+      this.profile()?.email ?? '';
+
+
+
+    const value =
+      this.form.getRawValue();
+
+
+
+
+    const dto: UpdateParentProfileDto = {
+
+      fullName: value.fullName,
+
+      phoneNumber: value.phoneNumber,
+
+      email: value.email
+
+    };
+
+
+
+
+    this.service
+      .updateProfile(dto)
+      .subscribe({
+
+        next: () => {
+
+
+          this.editMode.set(false);
+
+
+          this.saveSuccess.set(true);
+
+
+
+          // لو غير الإيميل
+          if (
+            oldEmail !== value.email
+          ) {
+
+            this.auth.logout();
+
+            return;
+
+          }
+
+
+
+          setTimeout(() => {
+
+            this.saveSuccess.set(false);
+
+          }, 3000);
+
+
+        },
+
+
+        error: () => {
+
+          this.saveSuccess.set(false);
+
+        }
+
+
+      });
+
+
   }
+
+
+
 }

@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
-  imports: [CommonModule, RouterLink] ,
+  imports: [CommonModule, RouterLink],
   templateUrl: './hero-section.html',
   styleUrl: './hero-section.css',
 })
@@ -13,10 +13,11 @@ export class HeroSection implements OnInit, OnDestroy {
   constructor(private cdr: ChangeDetectorRef) {}
 
   readonly robotMessages = [
-  'أهلاً بك في مُدْرِك 🌱',
-  'تعلّم، اكتشف، وطوّر مهاراتك بسهولة ✨',
-  'رحلة تعليمية ممتعة تبدأ من هنا 📚',
-];
+    'مرحباً! أنا روبوت مُدرك 🤖',
+    'هل تريد أن نتعلّم معاً اليوم؟',
+     'هيا نكتشف المعرفة ✨',
+  ];
+
   robotMessageIndex = 0;
   showRobotMessage = true;
 

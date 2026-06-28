@@ -1,5 +1,22 @@
 .profile-page {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  padding: 1rem;
+  min-height: 100%;
+  color: var(--foreground); /* تحويل النص للون الـ Navy الداكن بدلاً من الأبيض */
+}
+
+.page-header {
+  margin-bottom: 1rem; /* زيادة المسافة قليلاً ليعطي شعوراً بالاتساع والنظافة */
+}
+
+.page-header h1 {
+  font-size: var(--text-xl); /* استخدام حجم h2 المعتمد في السيستم 32px */
+  color: var(--foreground);   /* لون الـ Navy */
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-header p {
+  color: var(--foreground-muted); /* استخدام درجة النص الباهتة المعتمدة في الثيم */
+  font-size: var(--text-base);    /* حجم الخط الأساسي 17px */
+  margin-top: 0.5rem;
 }

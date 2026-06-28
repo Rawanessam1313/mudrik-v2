@@ -21,7 +21,8 @@ export class RegisterPageComponent implements OnDestroy {
   password = '';
   confirmPassword = '';
 
-  // termsAccepted = false;
+  termsAccepted = false;
+  termsError = false;
   showPassword = false;
 
   passwordStrengthWidth = '0%';
@@ -90,6 +91,7 @@ export class RegisterPageComponent implements OnDestroy {
 
   onInputChange() {
     this.showAlert = false;
+    this.termsError = false;
   }
 
   onSubmit() {
@@ -98,11 +100,12 @@ export class RegisterPageComponent implements OnDestroy {
     this.phoneError = !/^01[0125][0-9]{8}$/.test(this.phoneNumber);
     this.passwordError = this.password.length < 8;
     this.confirmPasswordError = this.password !== this.confirmPassword;
+    this.termsError = !this.termsAccepted;
 
-    // if (!this.termsAccepted) {
-    //   this.displayAlert('يجب الموافقة على الشروط والأحكام', 'error');
-    //   return;
-    // }
+    if (!this.termsAccepted) {
+      this.displayAlert('يجب الموافقة على الشروط والأحكام', 'error');
+      return;
+    }
 
     if (
       this.nameError ||
@@ -125,7 +128,8 @@ export class RegisterPageComponent implements OnDestroy {
       fullName: this.fullName,
       email: this.email,
       phoneNumber: this.phoneNumber,
-      password: this.password
+      password: this.password,
+      consentGiven:  this.termsAccepted
     }).subscribe({
       next: () => {
         this.isLoading = false;

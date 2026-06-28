@@ -1,6 +1,8 @@
-import { Routes } from '@angular/router';
+﻿import { Routes } from '@angular/router';
 import { Home } from './features/home/home';
 import { ParentsDashboard } from './features/parents-dashboard/parents-dashboard';
+import { ProfilePage } from './features/parents-dashboard/pages/profile-page/profile-page';
+import { DashboardOverview } from './features/parents-dashboard/pages/dashboard-overview/dashboard-overview';
 import { authGuard } from './core/guards/auth-guard';
 import { roleGuard } from './core/guards/role-guard';
 
@@ -22,10 +24,11 @@ export const routes: Routes = [
     path: 'parent-dashboard',
     canActivate: [authGuard, roleGuard(['User'])],
     component: ParentsDashboard,
-    loadChildren: () =>
-      import('./features/parents-dashboard/parents.routes').then(
-        (m) => m.PARENT_ROUTES
-      ),
+    children: [
+      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: 'overview', component: DashboardOverview },
+      { path: 'profile', component: ProfilePage },
+    ],
   },
 
   //  لوحة تحكم المدير (Admin)

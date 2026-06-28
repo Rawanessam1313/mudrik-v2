@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-export const PARENT_ROUTES: Routes = [
+export const PARENTS_ROUTES: Routes = [
   {
     path: '',
     redirectTo: 'overview',
@@ -10,12 +10,14 @@ export const PARENT_ROUTES: Routes = [
     path: 'overview',
     loadComponent: () =>
       import('./pages/dashboard-overview/dashboard-overview').then(
-        (m) => m.DashboardOverview
+        (m) => m.DashboardOverview,
       ),
   },
   {
     path: 'profile',
     loadComponent: () =>
-      import('./pages/profile-page/profile-page').then((m) => m.ProfilePage),
+      import('./pages/profile-page/profile-page').then(
+        (m) => m.ProfilePage,
+      ),
   },
 ];
