@@ -151,7 +151,26 @@
           </div>
           <div class="error-message" *ngIf="confirmPasswordError">كلمات المرور غير متطابقة</div>
         </div>
-
+<!-- Terms & Conditions -->
+<div class="form-group">
+  <label class="terms-label">
+    <input
+      type="checkbox"
+      [(ngModel)]="termsAccepted"
+      name="termsAccepted"
+      (change)="onInputChange()"
+    />
+    <span>
+      أوافق على
+      <a href="/terms" target="_blank">الشروط والأحكام</a>
+      و
+      <a href="/privacy" target="_blank">سياسة الخصوصية</a>
+    </span>
+  </label>
+  <div class="error-message" *ngIf="termsError">
+    يجب الموافقة على الشروط والأحكام للمتابعة
+  </div>
+</div>
         <button type="submit"  class="auth-btn" style="width: 100%;"
                 [class.btn-loading]="isLoading" [disabled]="isLoading">
           إنشاء الحساب

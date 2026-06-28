@@ -7,6 +7,7 @@ export interface RegisterRequest {
   email: string;
   phoneNumber: string;
   password: string;
+   consentGiven: boolean;
 }
 
 export interface LoginRequest {

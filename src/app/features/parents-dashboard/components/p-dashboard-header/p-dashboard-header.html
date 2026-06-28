@@ -1,13 +1,13 @@
-<header class="dash-header" dir="rtl">
+﻿<header class="dash-header" dir="rtl">
 <span class="star star-sm" style="top: 8%; left: 10%; color:#fff0ed; animation-delay: 0s;">★</span>
 <span class="star star-xs" style="top: 12%; left: 30%; color: #ffc145; animation-delay: 0.4s;">★</span>
 <span class="star star-sm" style="top: 7%; left: 52%; color:#f78271; animation-delay: 0.8s;">★</span>
 <span class="star star-xs" style="top: 15%; left: 75%; color:#71b8e4; animation-delay: 1.2s;">★</span>
-<span class="star star-sm" style="top: 9%; left: 92%; color:#ffc145; animation-delay: 0.3s;">★</span> 
+<span class="star star-sm" style="top: 9%; left: 92%; color:#ffc145; animation-delay: 0.3s;">★</span>
 <span class="star star-xs" style="top: 35%; left: 18%; color:#71b8e4; animation-delay: 1.6s;">★</span>
 <span class="star star-xs" style="top: 40%; left: 40%; color:#fff0ed; animation-delay: 2.0s;">★</span>
 <span class="star star-xs" style="top: 32%; left: 65%; color:#a7d08c; animation-delay: 0.7s;">★</span>
- <span class="star star-sm" style="top: 72%; left: 8%;  color:#ffc145; animation-delay: 2.4s;">★</span>
+<span class="star star-sm" style="top: 72%; left: 8%;  color:#ffc145; animation-delay: 2.4s;">★</span>
 <span class="star star-xs" style="top: 80%; left: 26%; color:#f78271; animation-delay: 1.4s;">★</span>
 <span class="star star-sm" style="top: 75%; left: 48%; color:#a7d08c; animation-delay: 1.9s;">★</span>
 <span class="star star-xs" style="top: 82%; left: 70%; color:#fff0ed; animation-delay: 0.5s;">★</span>
@@ -44,7 +44,6 @@
         أهلاً بك، {{parentName}}
       </p>
 
-
       <p class="dash-header__subtitle">
         إدارة تعلم طفلك بسهولة
       </p>
@@ -61,176 +60,98 @@
         routerLinkActive="is-active"
         [routerLinkActiveOptions]="{exact:true}"
       >
-
         <i class="ti ti-layout-dashboard"></i>
         لوحة التحكم
-
       </a>
-
 
       <a
         class="dash-header__nav-link"
         routerLink="/parent-dashboard/profile"
         routerLinkActive="is-active"
       >
-
         <i class="ti ti-user-circle"></i>
         الملف الشخصي
-
       </a>
-
 
     </nav>
 
-
   </div>
-
-
-
-
-
-
 
   <!-- Actions -->
   <div class="dash-header__actions">
-
 
     <button
       class="dash-header__btn-add"
       type="button"
       (click)="openAddChild()"
     >
-
       <i class="ti ti-plus"></i>
-
       <span>
         إضافة طفل
       </span>
-
     </button>
 
-
-
-    <button
+    <!-- <button
       class="dash-header__icon-btn"
       type="button"
       [class.has-notif]="hasNotifications"
     >
-
       <i class="ti ti-bell"></i>
-
-    </button>
-
-
-
+    </button> -->
 
     <!-- Profile -->
-
     <div 
       class="dash-header__profile"
       [class.is-open]="isDropdownOpen"
     >
-
-
       <button
         class="dash-header__profile-trigger"
         type="button"
         (click)="toggleDropdown()"
         [attr.aria-expanded]="isDropdownOpen"
       >
-
-
         <span class="dash-header__profile-name">
-          {{parentName}}
+          {{ parentName }}
         </span>
-
-
         <i class="ti ti-chevron-down dash-header__chevron"></i>
-
-
       </button>
 
-
-
-
-      @if(isDropdownOpen){
-
-      <div 
-        class="dash-header__dropdown"
-      >
-
-
+      <div *ngIf="isDropdownOpen" class="dash-header__dropdown">
         <div class="dash-header__dropdown-head">
-
-
           <p class="dash-header__dropdown-name">
-            {{parentName}}
+            {{ parentName }}
           </p>
-
-
-       
-
-
         </div>
 
-
-
         <button
           class="dash-header__dropdown-item"
+          type="button"
           (click)="navigateToProfile()"
         >
-
           <i class="ti ti-user"></i>
-
           الملف الشخصي
-
         </button>
-
-
 
         <button
           class="dash-header__dropdown-item"
+          type="button"
           (click)="navigateToDashboard()"
         >
-
           <i class="ti ti-layout-dashboard"></i>
-
           لوحة التحكم
-
         </button>
-
-
-
 
         <div class="dash-header__dropdown-divider"></div>
 
-
-
-
         <button
-          class="
-          dash-header__dropdown-item 
-          dash-header__dropdown-item--danger"
+          class="dash-header__dropdown-item dash-header__dropdown-item--danger"
+          type="button"
           (click)="logout()"
         >
-
           <i class="ti ti-logout"></i>
-
           تسجيل الخروج
-
-
         </button>
-
-
       </div>
-
-      }
-
-
     </div>
-
-
   </div>
-
-
 </header>
