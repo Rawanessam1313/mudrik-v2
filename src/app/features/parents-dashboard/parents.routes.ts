@@ -20,4 +20,11 @@ export const PARENTS_ROUTES: Routes = [
         (m) => m.ProfilePage,
       ),
   },
+  {
+    path: 'add-child',
+    loadComponent: () =>
+      import('./pages/add-child/add-child').then(
+        (m) => m.AddChildComponent,
+      ),
+  },
 ];

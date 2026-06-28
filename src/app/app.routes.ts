@@ -21,14 +21,24 @@ export const routes: Routes = [
 
   //  لوحة تحكم ولي الأمر (User)
   {
-    path: 'parent-dashboard',
-    canActivate: [authGuard, roleGuard(['User'])],
-    component: ParentsDashboard,
-    children: [
-      { path: '', redirectTo: 'overview', pathMatch: 'full' },
-      { path: 'overview', component: DashboardOverview },
-      { path: 'profile', component: ProfilePage },
-    ],
+    // path: 'parent-dashboard',
+    // canActivate: [authGuard, roleGuard(['User'])],
+    // component: ParentsDashboard,
+    // children: [
+    //   { path: '', redirectTo: 'overview', pathMatch: 'full' },
+    //   { path: 'overview', component: DashboardOverview },
+    //   { path: 'profile', component: ProfilePage },
+    // ],
+
+      path: 'parent-dashboard',
+      canActivate: [authGuard, roleGuard(['User'])],
+      component: ParentsDashboard,
+      children: [
+        { path: '', redirectTo: 'overview', pathMatch: 'full' },
+        { path: 'overview', component: DashboardOverview },
+        { path: 'profile', component: ProfilePage },
+        { path: 'add-child', loadComponent: () => import('./features/parents-dashboard/pages/add-child/add-child').then(m => m.AddChildComponent) },
+      ],
   },
 
   //  لوحة تحكم المدير (Admin)
