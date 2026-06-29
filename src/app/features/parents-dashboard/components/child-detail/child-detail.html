@@ -1,0 +1,110 @@
+<div class="child-detail" dir="rtl">
+
+  <div class="child-detail__header">
+    <div class="child-detail__identity">
+      <div class="child-detail__avatar" [style.background-color]="avatarBg()">
+        <img [src]="avatarUrl()" [alt]="student()!.firstName" class="child-detail__avatar-img" />
+      </div>
+      <div>
+        <h3 class="child-detail__name">{{ student()!.firstName }}</h3>
+        <p class="child-detail__grade">{{ gradeLevelText() }}</p>
+      </div>
+    </div>
+    <button class="child-detail__close" type="button" (click)="close()">
+      <i class="ti ti-x"></i>
+    </button>
+  </div>
+
+  <div class="child-detail__section">
+    <h4 class="child-detail__section-title">
+      <i class="ti ti-chart-bar"></i>
+      مستوى التقدم العام حسب المواد الدراسية
+    </h4>
+
+    @if (isProgressLoading()) {
+      <div class="subject-chart subject-chart--skeleton">
+        <div class="skeleton-bar" style="height: 40%"></div>
+        <div class="skeleton-bar" style="height: 75%"></div>
+        <div class="skeleton-bar" style="height: 60%"></div>
+      </div>
+    }
+
+    @if (!isProgressLoading() && subjectsProgress()?.length) {
+      <div class="subject-chart">
+        @for (subject of subjectsProgress(); track subject.id) {
+          <div class="subject-chart__column-group">
+            <span class="subject-chart__pct">{{ subject.overallProgress }}%</span>
+            
+            <div class="subject-chart__track">
+              <div 
+                class="subject-chart__fill" 
+                [style.height.%]="subject.overallProgress"
+                [style.background]="subject.color || 'var(--secondary)'"
+              >
+                <div class="subject-chart__reflection"></div>
+              </div>
+            </div>
+            
+            <span class="subject-chart__label">{{ subject.name }}</span>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="child-detail__section">
+    <h4 class="child-detail__section-title">
+      <i class="ti ti-table"></i>
+      تقرير الأداء الأكاديمي وتفاصيل الكويزات
+    </h4>
+
+    <div class="table-container">
+      <table class="mudrik-table">
+        <thead>
+          <tr>
+            <th>المادة الدراسية</th>
+            <th>مستوى التقدم </th>
+            <th>درجات الكويزات والاختبارات</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (subject of subjectsProgress(); track subject.id) {
+            <tr>
+              <td class="mudrik-table__subject-name">
+                <span class="subject-dot" [style.background]="subject.color"></span>
+                {{ subject.name }}
+              </td>
+              
+              <td>
+                <div class="mudrik-table__progress-wrapper">
+                  <span class="progress-text">اكتمل {{ subject.completedLessons }} من {{ subject.totalLessons }} درس</span>
+                  <div class="progress-bar-mini">
+                    <div class="progress-bar-mini__fill" [style.width.%]="subject.overallProgress" [style.background]="subject.color"></div>
+                  </div>
+                </div>
+              </td>
+              
+              <td>
+                <div class="mudrik-table__quizzes-list">
+                  @for (quiz of subject.quizzes; track quiz.id) {
+                    <div class="quiz-badge" [class.quiz-badge--excellent]="quiz.score >= 85" [class.quiz-badge--good]="quiz.score < 85 && quiz.score >= 60">
+                      <span class="quiz-title">{{ quiz.title }}:</span>
+                      <span class="quiz-score">{{ quiz.score }}%</span>
+                    </div>
+                  } @empty {
+                    <span class="text-muted" style="font-size: var(--text-xs);">لا توجد كويزات مكتملة في هذه المادة بعد</span>
+                  }
+                </div>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="3" class="text-center text-muted" style="padding: 24px;">لا توجد بيانات متاحة حالياً</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

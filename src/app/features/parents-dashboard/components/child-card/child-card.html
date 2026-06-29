@@ -1,1 +1,69 @@
-<p>child-card works!</p>
+<!-- حاوية جديدة لتوسيط الكروت في الصفحة -->
+<div class="cards-container">
+
+  <div class="child-card" [class.child-card--active]="isActive()" dir="rtl">
+
+    <!-- Header -->
+    <div class="child-card__header">
+      <div class="child-card__avatar" [style.background-color]="avatarBg()">
+        <img [src]="avatarUrl()" [alt]="student().firstName" class="child-card__avatar-img" loading="lazy" />
+      </div>
+
+      <div class="child-card__info">
+        <h3 class="child-card__name">{{ student().firstName }}</h3>
+        <p class="child-card__grade">{{ gradeLevelText() }}</p>
+      </div>
+    </div>
+
+    <!-- Stats (المربعات المعدلة) -->
+    <div class="child-card__stats">
+      <!-- Age -->
+      <div class="child-card__stat">
+        <span class="child-card__stat-label">العمر</span>
+        <span class="child-card__stat-value">{{ student().age }} سنوات</span>
+      </div>
+
+      <!-- Lessons -->
+      <div class="child-card__stat">
+        <span class="child-card__stat-label">الدروس المكتملة</span>
+        <span class="child-card__stat-value">{{ student().completedLessons }}/{{ student().totalLessons }}</span>
+      </div>
+
+      <!-- Streak -->
+      <div class="child-card__stat">
+        <span class="child-card__stat-label">الـ Streak</span>
+        <span class="child-card__stat-value child-card__stat-value--streak">🔥 {{ streakDays() }} أيام</span>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="child-card__progress">
+      <div class="child-card__progress-header">
+        <span class="child-card__progress-label">التقدم الكلي</span>
+        <span class="child-card__progress-pct">{{ overallProgress() }}%</span>
+      </div>
+      <div class="child-card__progress-track">
+        <div class="child-card__progress-fill" [style.width.%]="overallProgress()"></div>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <!-- @if (student().hasDyslexia || student().hasADHD) {
+      <div class="child-card__badges">
+        @if (student().hasDyslexia) {
+          <span class="child-card__badge child-card__badge--dyslexia">ديسلكسيا</span>
+        }
+        @if (student().hasADHD) {
+          <span class="child-card__badge child-card__badge--adhd">ADHD</span>
+        }
+      </div>
+    } -->
+
+    <!-- Button -->
+    <button class="child-card__btn" type="button" (click)="onViewDetails()">
+      عرض التفاصيل والتقارير
+    </button>
+
+  </div>
+
+</div>
