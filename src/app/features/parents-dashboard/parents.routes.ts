@@ -20,4 +20,5 @@ export const PARENTS_ROUTES: Routes = [
         (m) => m.ProfilePage,
       ),
   },
+
 ];
