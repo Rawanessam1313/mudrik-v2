@@ -43,7 +43,7 @@
 .form-vertical {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* مسافة مريحة بين الحقول */
+  gap: 1rem; /* مسافة مريحة بين الحقول */
   margin-bottom: 2.5rem;
 }
 

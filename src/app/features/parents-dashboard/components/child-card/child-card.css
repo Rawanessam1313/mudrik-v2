@@ -1,0 +1,195 @@
+/* ── حاوية التوسيط في الصفحة ── */
+.cards-container {
+  display: flex;
+  justify-content: center;  /* التوسيط الأفقي */
+  align-items: center;      /* التوسيط العمودي */
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 40px 20px;
+  width: 100%;
+  min-height: 80vh;         /* تضمن التوسيط داخل مساحة الرؤية */
+  box-sizing: border-box;
+}
+
+/* ── الكارد الأساسي ── */
+.child-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 28px; /* تم زيادة البادينج قليلاً ليتناسق مع الحجم الجديد الأعرض */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 460px; /* تم زيادة العرض الأقصى هنا أيضاً ليتطابق مع الـ Grid */
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  box-sizing: border-box;
+}
+
+.child-card--active {
+  border-color: var(--navy);
+  box-shadow: var(--shadow);
+}
+
+/* ── الهيدر والتوسيط الداخلي ── */
+.child-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.child-card__info { 
+  width: 100%; 
+}
+
+.child-card__name {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0 0 4px;
+  font-family: var(--font-ar);
+}
+
+.child-card__grade {
+  font-size: var(--text-sm);
+  color: var(--foreground-muted);
+  margin: 0;
+  font-family: var(--font-ar);
+}
+
+.child-card__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius); /* تم تقليله متوافقاً مع الكارد */
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.child-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── المربعات (تم تعديل الشكل واللون هنا) ── */
+.child-card__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.child-card__stat {
+  background: var(--background);       
+  border: 1px solid  var(--border);      
+  border-radius: var(--radius-sm);     
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.child-card__stat-label {
+  font-size: var(--text-xs);
+  color: var(--foreground-muted);
+  font-family: var(--font-ar);
+}
+
+.child-card__stat-value {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--foreground);
+  font-family: var(--font-ar);
+}
+
+.child-card__stat-value--streak { 
+  color: var(--primary-dark); /* المرجاني الداكن للبراند ليعبر عن الحماس والـ Streak */
+}
+
+/* ── شريط التقدم ── */
+.child-card__progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.child-card__progress-label {
+  font-size: var(--text-sm);
+  color: var(--foreground-muted);
+  font-family: var(--font-ar);
+}
+
+.child-card__progress-pct {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--foreground);
+  font-family: var(--font-ar);
+}
+
+.child-card__progress-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.child-card__progress-fill {
+  height: 100%;
+  background: linear-gradient(270deg, var( --secondary-light), var( --navy-light), var(--navy)); 
+  border-radius: var(--radius-pill);
+  transition: width var(--transition) ease;
+}
+
+/* ── الشارات ── */
+.child-card__badges {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.child-card__badge {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ar);
+}
+
+.child-card__badge--dyslexia { 
+  background: var(--primary-light); 
+  color: var(--primary-dark); 
+}
+
+.child-card__badge--adhd { 
+  background: var(--accent-light); 
+  color: var(--foreground); 
+}
+
+/* ── الزر السفلي ── */
+.child-card__btn {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-sm); /* تم تقليل الانحناء ليتناسق مع المربعات الجديدة */
+  background: transparent;
+  color: var(--primary);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  font-family: var(--font-ar);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  margin-top: auto;
+}
+
+.child-card__btn:hover {
+  background: var(--primary);
+  color: #fff;
+}

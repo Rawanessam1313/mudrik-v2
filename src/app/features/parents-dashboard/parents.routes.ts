@@ -20,6 +20,7 @@ export const PARENTS_ROUTES: Routes = [
         (m) => m.ProfilePage,
       ),
   },
+
   {
     path: 'add-child',
     loadComponent: () =>
@@ -27,4 +28,5 @@ export const PARENTS_ROUTES: Routes = [
         (m) => m.AddChildComponent,
       ),
   },
+
 ];

@@ -1,31 +1,90 @@
-<section class="overview-page" dir="rtl">
-  <div class="overview-header">
-    <div>
-      <p class="overview-subtitle">بوابة ولي الأمر</p>
-      <h1>مرحباً بك، {{ parentName }}</h1>
-      <p class="overview-note">
-        هذه هي لوحة التحكم الخاصة بك. تصفح الإحصاءات الأساسية وادخل على الملف الشخصي لتحديث بياناتك.
-      </p>
+<div class="overview" dir="rtl">
+
+  <!-- ══ قسم 1: متابعة الأطفال ══ -->
+  <section class="overview__section">
+
+    <div class="overview__section-header">
+      <h2 class="overview__section-title">متابعة الأطفال</h2>
     </div>
-  </div>
 
-  <div class="overview-grid">
-    <article class="overview-card">
-      <h2>الأطفال المسجلون</h2>
-      <p>يمكنك متابعة أداء طفلك وتحديث ملفه من لوحة التحكم.</p>
-      <span>2</span>
-    </article>
+    <!-- Skeleton loading -->
+    @if (isLoading()) {
+      <div class="overview__cards-grid">
+        <div class="child-card-skeleton"></div>
+        <div class="child-card-skeleton"></div>
+      </div>
+    }
 
-    <article class="overview-card overview-card--soft">
-      <h2>المهام القادمة</h2>
-      <p>راجع النشاطات القادمة وابقى على تواصل مع معلمي طفلك.</p>
-      <span>4</span>
-    </article>
+    <!-- كروت الأطفال (تتوسط تلقائياً الآن) -->
+    @if (!isLoading() && students().length) {
+      <div class="overview__cards-grid">
+        @for (student of students(); track student.id) {
+          <app-child-card
+            [student]="student"
+            [isActive]="isSelected(student)"
+            (viewDetails)="onViewDetails($event)"
+          />
+        }
+      </div>
+    }
 
-    <article class="overview-card overview-card--accent">
-      <h2>آخر تحديث</h2>
-      <p>قم بتحديث ملفك الشخصي للحفاظ على بيانات الاتصال الحديثة.</p>
-      <span>الوقت الحالي</span>
-    </article>
-  </div>
-</section>
+    <!-- detail panel -->
+    @if (selectedChild()) {
+      <div class="overview__detail-panel">
+        <app-child-detail />
+      </div>
+    }
+
+    <!-- لو مفيش أطفال -->
+    @if (!isLoading() && !students().length) {
+      <div class="overview__empty">
+        <span class="overview__empty-icon">👶</span>
+        <p>لم تقم بإضافة أي أطفال بعد</p>
+      </div>
+    }
+
+  </section>
+
+  <!-- ══ قسم 2: النشاط الأخير ══ -->
+  <section class="overview__section">
+
+    <h2 class="overview__section-title">النشاط الأخير</h2>
+
+    <div class="overview__activity-card">
+      @for (event of activity(); track event.id) {
+        <div class="overview__activity-item">
+          <div class="overview__activity-icon">
+            <i [class]="activityIcon(event.type)"></i>
+          </div>
+          <div class="overview__activity-body">
+            <p class="overview__activity-text">{{ event.description }}</p>
+            <span class="overview__activity-time">
+              {{ event.occurredAt | date:'shortTime' }}
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+
+  </section>
+
+  <!-- ══ قسم 3: إضافة طفل ══ -->
+  <section class="overview__add-child">
+
+<span class="star star-sm" style="top: 7%; left: 52%; color:#a7d08c; animation-delay: 0.8s;">★</span>
+<span class="star star-xs" style="top: 15%; left: 75%; color:#71b8e4; animation-delay: 1.2s;">★</span>
+<span class="star star-sm" style="top: 9%; left: 92%; color:#ffc145; animation-delay: 0.3s;">★</span>
+<span class="star star-xs" style="top: 35%; left: 18%; color:#71b8e4; animation-delay: 1.6s;">★</span>
+<span class="star star-xs" style="top: 40%; left: 40%; color:#fff0ed; animation-delay: 2.0s;">★</span>
+<span class="star star-sm" style="top: 72%; left: 8%;  color:#ffc145; animation-delay: 2.4s;">★</span>
+<span class="star star-xs" style="top: 80%; left: 26%; color:#f78271; animation-delay: 1.4s;">★</span>
+<span class="star star-xs" style="top: 82%; left: 70%; color:#fff0ed; animation-delay: 0.5s;">★</span>
+<span class="star star-xs" style="top: 70%; left: 90%; color:#a7d08c; animation-delay: 2.2s;">★</span>
+    <h3>هل لديك طفل آخر تود إضافته؟</h3>
+    <p>يمكنك إضافة حتى 5 أطفال في الحساب الواحد ومتابعة تقدمهم جميعاً.</p>
+    <button class="overview__add-btn" type="button">
+      أضف طفلاً جديداً الآن
+    </button>
+  </section>
+
+</div>
