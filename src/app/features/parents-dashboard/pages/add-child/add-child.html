@@ -1,0 +1,158 @@
+<div class="onboarding-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="onboarding-sidebar">
+    <div class="sidebar-logo">
+      <a routerLink="/" class="logo">
+        <img src="images/logo2.jpg" alt="مُدْرِك" class="logo-img">
+      </a>
+    </div>
+
+    <nav class="onboarding-steps">
+      <div class="step-item completed">
+        <div class="step-icon"><i class="fas fa-check"></i></div>
+        <span>حساب ولي الأمر</span>
+      </div>
+      <div class="step-item active">
+        <div class="step-icon">2</div>
+        <span>إضافة ملف الطفل</span>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">3</div>
+        <span>التعرف على الطفل</span>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">4</div>
+        <span>التقييم التشخيصي</span>
+      </div>
+    </nav>
+
+    <!-- Live Preview -->
+    <div class="preview-container">
+      <div class="preview-card">
+        <div class="preview-avatar">{{ selectedAvatar }}</div>
+        <div class="preview-info">
+          <h4>{{ liveName }}</h4>
+          <p>{{ liveMeta }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-owl">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+  </aside>
+
+  <!-- Main Form -->
+  <main class="onboarding-main">
+    <div class="form-card">
+      <div class="section-header">
+        <h2>إضافة طفل جديد</h2>
+        <p>لنقم بإنشاء ملف تعريف لطفلك. سنستخدم هذه البيانات لتخصيص رحلته التعليمية وتقديم المحتوى المناسب له.</p>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" novalidate>
+
+        <!-- Child Name -->
+        <div class="premium-form-group">
+          <div class="floating-label-wrapper" [class.has-value]="childName">
+            <label class="premium-label" for="child-name">اسم الطفل بالكامل</label>
+            <input type="text" id="child-name" class="premium-input"
+                   [(ngModel)]="childName" name="childName" placeholder=" " required>
+          </div>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Age -->
+          <div class="premium-form-group">
+            <div class="floating-label-wrapper" [class.has-value]="childAge">
+              <label class="premium-label" for="child-age">السن</label>
+              <input type="number" id="child-age" class="premium-input"
+                     [(ngModel)]="childAge" name="childAge"
+                     placeholder=" " min="5" max="15" required>
+            </div>
+          </div>
+
+          <!-- Gender -->
+          <div class="premium-form-group">
+            <div class="floating-label-wrapper has-value">
+              <label class="premium-label" for="child-gender">الجنس</label>
+              <select id="child-gender" class="premium-select"
+                      [(ngModel)]="childGender" name="childGender" required>
+                <option value="male">ولد</option>
+                <option value="female">بنت</option>
+              </select>
+              <i class="fas fa-chevron-down select-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grade -->
+        <div class="premium-form-group grade-group">
+          <!-- <div class="floating-label-wrapper" [class.has-value]="childGrade"> -->
+            <div class="floating-label-wrapper has-value">
+                <label class="premium-label" for="child-grade">الصف الدراسي</label>
+                <select id="child-grade" class="premium-select"
+                        [(ngModel)]="childGrade" name="childGrade" required>
+                <option value="" disabled>اختر الصف</option>
+                <option value="1">الصف الأول الابتدائي</option>
+                <option value="2">الصف الثاني الابتدائي</option>
+                <option value="3">الصف الثالث الابتدائي</option>
+                <option value="4">الصف الرابع الابتدائي</option>
+                </select>
+                <i class="fas fa-chevron-down select-icon"></i>
+          </div>
+        </div>
+
+        <!-- Avatar Selection -->
+        <!-- <div class="avatar-section-title">
+          <i class="fas fa-user-astronaut" style="color: var(--primary);"></i>
+          <span>اختر شخصية الطفل</span>
+        </div>
+        <div class="avatar-grid">
+          <div *ngFor="let avatar of avatars"
+               class="avatar-option"
+               [class.selected]="selectedAvatar === avatar"
+               (click)="selectAvatar(avatar)">
+            {{ avatar }}
+          </div>
+        </div> -->
+
+        <!-- Learning Needs -->
+        <div class="avatar-section-title">
+          <i class="fas fa-brain" style="color: var(--secondary);"></i>
+          <span>احتياجات التعلم (إن وجدت)</span>
+        </div>
+        <div class="needs-grid">
+          <div *ngFor="let need of needs"
+               class="need-card"
+               [class.selected]="selectedNeed === need.key"
+               (click)="selectNeed(need.key)">
+            <div class="need-icon-box"><i [class]="need.icon"></i></div>
+            <div class="need-info">
+              <h5>{{ need.titleAr }}</h5>
+              <p>{{ need.titleEn }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-btn-wrapper">
+          <button type="submit" class="premium-btn" [disabled]="isLoading">
+            <span>{{ isLoading ? 'جاري إنشاء الملف...' : 'إنشاء ملف الطفل' }}</span>
+            <i class="fas" [ngClass]="isLoading ? 'fa-spinner fa-spin' : 'fa-chevron-left'"></i>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+</div>
+
+<!-- Success Overlay -->
+<div class="success-overlay" *ngIf="showSuccess">
+  <div class="success-content">
+    <div class="celebration-icon">✨</div>
+    <h2>تم إنشاء الملف بنجاح!</h2>
+    <p>أهلاً بك في مُدْرِك. لننتقل الآن للتعرف على طفلك...</p>
+  </div>
+</div>
